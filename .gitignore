@@ -1,0 +1,13 @@
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+.env
+
+# Media va statik fayllar
+/media/
+/static/
+
+# IDE fayllari
+.idea/
+.vscode/
