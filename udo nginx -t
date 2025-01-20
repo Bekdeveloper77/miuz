@@ -1,0 +1,21 @@
+[0;1;32m●[0m gunicorn.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/gunicorn.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Sun 2025-01-19 07:40:00 UTC; 348ms ago
+   Main PID: 24786 (gunicorn)
+      Tasks: 5 (limit: 19087)
+     Memory: 83.0M
+     CGroup: /system.slice/gunicorn.service
+             ├─24786 /var/www/html/miuz/venv/bin/python3 /var/www/html/miuz/venv/bin/gunicorn --workers 4 --threads 2 --max-requests 1000 --max-requests-jitter 100 config.wsgi:application
+             ├─24839 /var/www/html/miuz/venv/bin/python3 /var/www/html/miuz/venv/bin/gunicorn --workers 4 --threads 2 --max-requests 1000 --max-requests-jitter 100 config.wsgi:application
+             ├─24840 /var/www/html/miuz/venv/bin/python3 /var/www/html/miuz/venv/bin/gunicorn --workers 4 --threads 2 --max-requests 1000 --max-requests-jitter 100 config.wsgi:application
+             ├─24852 /var/www/html/miuz/venv/bin/python3 /var/www/html/miuz/venv/bin/gunicorn --workers 4 --threads 2 --max-requests 1000 --max-requests-jitter 100 config.wsgi:application
+             └─24853 /var/www/html/miuz/venv/bin/python3 /var/www/html/miuz/venv/bin/gunicorn --workers 4 --threads 2 --max-requests 1000 --max-requests-jitter 100 config.wsgi:application
+
+Jan 19 07:40:00 mi systemd[1]: Started gunicorn daemon.
+Jan 19 07:40:00 mi gunicorn[24786]: [2025-01-19 07:40:00 +0000] [24786] [INFO] Starting gunicorn 23.0.0
+Jan 19 07:40:00 mi gunicorn[24786]: [2025-01-19 07:40:00 +0000] [24786] [INFO] Listening at: http://127.0.0.1:8000 (24786)
+Jan 19 07:40:00 mi gunicorn[24786]: [2025-01-19 07:40:00 +0000] [24786] [INFO] Using worker: gthread
+Jan 19 07:40:00 mi gunicorn[24839]: [2025-01-19 07:40:00 +0000] [24839] [INFO] Booting worker with pid: 24839
+Jan 19 07:40:00 mi gunicorn[24840]: [2025-01-19 07:40:00 +0000] [24840] [INFO] Booting worker with pid: 24840
+Jan 19 07:40:00 mi gunicorn[24852]: [2025-01-19 07:40:00 +0000] [24852] [INFO] Booting worker with pid: 24852
+Jan 19 07:40:00 mi gunicorn[24853]: [2025-01-19 07:40:00 +0000] [24853] [INFO] Booting worker with pid: 24853

@@ -112,16 +112,18 @@
             </button>
 
             <div class="form-group">
-				<a href="https://sso.egov.uz/sso/oauth/Authorization.do?response_type=one_code&client_id=nuu_uz&redirect_uri=http://localhost:8000/oneid/callback&scope=myportal&state=testState">
-				<div class="row">
-                  <button type="button" class="login-btn" style="background-color:#4024a2;color:white; font-weight:700; font-size:14px">ONE ID ORQALI KIRISH</button>
-
-				</div>
-					</a>
-				</div>
+				<a href="https://sso.egov.uz/sso/oauth/Authorization.do?response_type=one_code&client_id=nuu_uz&redirect_uri=https://malakaviy.nuu.uz/applications&scope=nuu_uz&state=testState">
+    				 <div class="row">
+        				<button type="button" class="login-btn" style="background-color:#4024a2;color:white; font-weight:700; font-size:14px">
+          				  ONE ID ORQALI KIRISH
+        				</button>
+   				 </div>
+				</a>
+	
+			</div>
         </form>
         <div class="login-footer">
-            <p>Akkauntingiz yo'qmi? <a href="{% url 'register' %}">Ro'yxatdan o'tish</a></p>
+            
         </div>
     </div>
 

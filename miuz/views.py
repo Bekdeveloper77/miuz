@@ -21,70 +21,15 @@ import requests
 
 # Create your views here.
 
-import uuid
-
-
-def oneid_login(request):
-    oneid_auth_url = (
-        "https://sso.oneid.uz/oauth/authorize?"
-        f"client_id={settings.ONEID_CLIENT_ID}&"
-        f"redirect_uri={settings.ONEID_REDIRECT_URI}&"
-        "response_type=code&scope=profile"
-    )
-    return redirect(oneid_auth_url)
-
-def oneid_callback(request):
-    code = request.GET.get('code')
-    if not code:
-        return JsonResponse({'error': 'Code not provided'}, status=400)
-
-    # Token olish uchun so'rov yuboramiz
-    token_url = "https://sso.oneid.uz/oauth/token"
-    token_data = {
-        'grant_type': 'authorization_code',
-        'code': code,
-        'redirect_uri': settings.ONEID_REDIRECT_URI,
-        'client_id': settings.ONEID_CLIENT_ID,
-        'client_secret': settings.ONEID_CLIENT_SECRET,
-    }
-    response = requests.post(token_url, data=token_data)
-    if response.status_code != 200:
-        return JsonResponse({'error': 'Failed to get token'}, status=response.status_code)
-
-    access_token = response.json().get('access_token')
-
-    # Foydalanuvchi ma'lumotlarini olish
-    user_info_url = "https://sso.oneid.uz/api/user"
-    user_info_response = requests.get(
-        user_info_url, headers={'Authorization': f'Bearer {access_token}'}
-    )
-    if user_info_response.status_code == 200:
-        user_data = user_info_response.json()
-        return JsonResponse(user_data)  # Ma'lumotlarni qaytarish yoki saqlash
-    return JsonResponse({'error': 'Failed to fetch user info'}, status=user_info_response.status_code)
-
-
 @login_required
 def LoginRedirectView(request):
     if not request.user.is_authenticated:
         return redirect('login')
     if request.user.is_superuser:  # Agar foydalanuvchi admin bo'lsa
-        return redirect('home')  # Admin sahifasiga yo'naltirish
+        return redirect('account')  # Admin sahifasiga yo'naltirish
     else:  # Oddiy foydalanuvchi bo'lsa
         return redirect('applications')  # Foydalanuvchi sahifasiga yo'naltirish
 
-
-# def LoginView(request):
-#     if request.method == "POST":
-#         username = request.POST.get('username')
-#         password = request.POST.get('password')
-#         user = authenticate(request, username=username, password=password)
-#         if user is not None:
-#             login(request, user)
-#             return redirect('home')  # Muvaffaqiyatli kirgandan keyin yo'naltirish
-#         else:
-#             return render(request, 'login.html', {'error': 'Noto\'g\'ri username yoki parol'})
-#     return render(request, 'login.html')
 @login_required
 def HomeView(request):
     status_counts = {}
@@ -97,6 +42,7 @@ def HomeView(request):
     }
 
     return render(request, 'home.html', context)
+
 def SciencesView(request):
     status_counts = {}
     for status, _ in Applications.STATUS_CHOICES:
@@ -302,7 +248,7 @@ def admin_applicationfilter(request):
             user=request.user
         )
         messages.success(request, "Ariza muvaffaqiyatli yuborildi!")
-        return redirect('applications')
+        return redirect('applications', {'user': request.user})
 
     # Kontekst ma'lumotlar
     context = {
@@ -318,7 +264,7 @@ def admin_applicationfilter(request):
     }
 
     template_name = 'adminapplications.html' if request.user.is_staff else 'applications.html'
-    return render(request, template_name, context)
+    return render(request, template_name, context, {'user': request.user})
 
 
 
