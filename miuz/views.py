@@ -3,7 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
+from docx import Document
 
+import io
 from django.contrib.auth import authenticate, login, logout
 from .forms import ApplicationForm, ScienceForm, GroupForm
 from django.contrib import messages
@@ -16,32 +18,159 @@ import calendar
 from datetime import datetime
 from django.core.exceptions import ValidationError
 from django.conf import settings
-
+from django.contrib.auth.views import LoginView
+import uuid
 import requests
+from urllib.parse import urlencode
+from django.views.decorators.csrf import csrf_exempt
+
+
+
 
 # Create your views here.
+# Login View
 
-@login_required
-def LoginRedirectView(request):
-    if not request.user.is_authenticated:
-        return redirect('login')
-    if request.user.is_superuser:  # Agar foydalanuvchi admin bo'lsa
-        return redirect('account')  # Admin sahifasiga yo'naltirish
-    else:  # Oddiy foydalanuvchi bo'lsa
-        return redirect('applications')  # Foydalanuvchi sahifasiga yo'naltirish
+
+def LoginView(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return HttpResponse("Invalid login credentials", status=400)
+
+    if request.GET.get("oneid_login"):
+        # Avvalgi sessiyadagi state qiymatini tozalash
+        if 'oauth_state' in request.session:
+            del request.session['oauth_state']
+    
+        # Yangi state yaratish
+        state = str(uuid.uuid4())
+        request.session['oauth_state'] = state  # Yangi qiymatni sessiyaga saqlash
+
+        query_params = urlencode({
+            'client_id': settings.ONEID_CLIENT_ID,
+            'response_type': 'one_code',
+            'redirect_uri': settings.ONEID_REDIRECT_URI,
+            'scope': 'nuu_uz',
+            'state': state  # `state`ni URLga qo'shish
+        })
+        oneid_url = f"{settings.ONEID_AUTH_URL}?{query_params}"
+        return redirect(oneid_url)
+
+    return render(request, 'login.html')
+
+
+
+def callback(request):
+    # URL'dan code va state qiymatini olish
+    code = request.GET.get('code')
+    
+    if not code:
+        return HttpResponse("Authorization code missing", status=400)
+
+    # Token olish uchun OneID API'ga so'rov yuborish
+    token_url = "https://sso.egov.uz/sso/oauth/Authorization.do"  # Token olish URL
+    data = {
+        'grant_type': 'one_authorization_code',  # OAUTH grant_type
+        'client_id': settings.ONEID_CLIENT_ID,  # Administrator tomonidan taqdim etilgan client_id
+        'client_secret': settings.ONEID_CLIENT_SECRET,  # Administrator tomonidan taqdim etilgan client_secret
+        'code': code,  # URL'dan olingan authorization code
+        'redirect_uri': settings.ONEID_REDIRECT_URI,  # To'g'ri redirect_uri
+    }
+
+    # So'rov yuborish
+    response = requests.post(token_url, data=data)
+
+    # So'rov javobini tekshirish
+    print("Response Status Code:", response.status_code)
+    print("Response Text:", response.text)
+    try:
+        print("Response JSON:", response.json())  # Agar JSON shaklida javob kelsa
+    except ValueError:
+        pass  # Agar JSON formatida bo'lmasa
+
+    if response.status_code != 200:
+        return HttpResponse(f"Error fetching access token: {response.text}", status=400)
+
+    # So'rov muvaffaqiyatli bo'lsa, access_token olish
+    token_data = response.json()
+    access_token = token_data.get('access_token')
+
+    if not access_token:
+        return HttpResponse(f"Access token not found in response: {token_data}", status=400)
+
+    # Token bilan foydalanuvchi ma'lumotlarini olish
+    user_info_url = "https://sso.egov.uz/sso/oauth/Authorization.do"  # Foydalanuvchi ma'lumotlarini olish URL
+    user_info_data = {
+        'grant_type': 'one_access_token_identify',  # Token orqali foydalanuvchi ma'lumotlarini olish
+        'client_id': settings.ONEID_CLIENT_ID,  # Administrator tomonidan taqdim etilgan client_id
+        'client_secret': settings.ONEID_CLIENT_SECRET,  # Administrator tomonidan taqdim etilgan client_secret
+        'access_token': access_token,  # Olingan access_token
+        'scope': 'myportal',  # Administrator tomonidan taqdim etilgan scope
+    }
+
+   # Foydalanuvchi ma'lumotlarini olish uchun so'rov yuborish
+    user_info_response = requests.post(user_info_url, data=user_info_data)
+
+    if user_info_response.status_code == 200:
+        # JSON formatda qaytgan barcha ma'lumotlarni chop etish
+        print("OneID javobi:", user_info_response.json())
+    
+        # Foydalanuvchi ma'lumotlarini olish
+        user_info = user_info_response.json()
+    
+        # Bu yerda o'zgarishlar qilishingiz mumkin
+        user, created = User.objects.get_or_create(
+            username=user_info['user_id'], 
+            defaults={
+                'first_name': user_info.get('first_name', ''),
+                'last_name': user_info.get('sur_name', ''),
+                'full_name': user_info.get('full_name', ''),  # Agar email mavjud bo'lsa, saqlanadi
+            }
+        )
+
+        if created:
+            message = "Foydalanuvchi yaratildi."
+        else:
+            message = "Foydalanuvchi avvaldan mavjud."
+
+        # Javob qaytarish
+        return JsonResponse({
+            "status": "success",
+            "message": message,
+            "user": {
+                "username": user.username,
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "full_name": user.full_name,
+            }
+        })
+
+        # Foydalanuvchini tizimga kiritish
+        login(request, user)
+        next_url = request.GET.get('next', 'applications')
+        return redirect(next_url)
+    else:
+        print("Error fetching user info:", user_info_response.text)
+        return HttpResponse(f"Error fetching user info: {user_info_response.text}", status=400)
+
 
 @login_required
 def HomeView(request):
     status_counts = {}
     for status, _ in Applications.STATUS_CHOICES:
         status_counts[status] = Applications.objects.filter(status=status).count()
-    # user = request.user  # Hozirgi foydalanuvchi
+
     context = {
         'status_counts': status_counts,
         'user': request.user,
     }
 
-    return render(request, 'home.html', context)
+    return render(request, 'home.html', context,)
 
 def SciencesView(request):
     status_counts = {}
@@ -207,6 +336,10 @@ def admin_applicationfilter(request):
 
     # POST so'rovini tekshirish
     if request.method == 'POST':
+         # Foydalanuvchi ma'lumotlarini avtomatik olish
+        first_name = request.POST.get('first_name', request.user.first_name)
+        last_name = request.POST.get('last_name', request.user.last_name)
+        full_name = request.POST.get('full_name', request.user.full_name)
         directions_obj = get_object_or_404(Groups, id=request.POST.get("directions"))
         sciences_obj = get_object_or_404(Sciences, id=request.POST.get("sciences"))
         type_edu_obj = get_object_or_404(Edutype, id=request.POST.get("type_edu"))
@@ -233,9 +366,9 @@ def admin_applicationfilter(request):
         phone_number = request.POST.get("phone_number", "").replace(' ', '').replace('-', '').strip()
         # Obyekt yaratish
         Applications.objects.create(
-            first_name=request.POST.get("first_name"),
-            last_name=request.POST.get("last_name"),
-            father_name=request.POST.get("father_name"),
+            first_name=first_name,
+            last_name=last_name,
+            full_name=full_name,
             directions=directions_obj,
             sciences=sciences_obj,
             type_edu=type_edu_obj,
@@ -248,7 +381,7 @@ def admin_applicationfilter(request):
             user=request.user
         )
         messages.success(request, "Ariza muvaffaqiyatli yuborildi!")
-        return redirect('applications', {'user': request.user})
+        return redirect(reverse('applications', kwargs={'user': request.user.username}))
 
     # Kontekst ma'lumotlar
     context = {
@@ -264,7 +397,7 @@ def admin_applicationfilter(request):
     }
 
     template_name = 'adminapplications.html' if request.user.is_staff else 'applications.html'
-    return render(request, template_name, context, {'user': request.user})
+    return render(request, template_name, context,)
 
 
 
@@ -282,12 +415,8 @@ def comissions_view(request):
     return render(request, 'comissions.html', context)
 
 
-# def application_create_view(request):
-#
-#
-#     # Shablonni qaytarish
-#     return render(request, "adminapplications.html", context)
-
+#def applications(request):
+#    return render(request, 'applications.html')  # applications sahifasi shabloni
 
 # def ApplicationsView(request):
 #     applications = Applications.objects.filter(user=request.user)  # Faqat foydalanuvchining arizalari
@@ -421,6 +550,42 @@ def update_status(request, pk):
         return JsonResponse({'success': True, 'status': application.status})
     return JsonResponse({'success': False}, status=405)
 
+#word fayl
+def generate_certificate(application):
+    doc = Document()
+
+    # Ballga qarab xabarni tayyorlash
+    if application.score >= 56:
+        result_message = "imtihonni muvofaqqiyatli topshiridingiz."
+    elif application.score > 0:
+        result_message = "imtihonni muvofaqqiyatli topshira olmadingiz."
+    else:
+        result_message = "imtihonga qatnashmagansiz."
+
+    # Word faylga ma'lumot qo'shish
+    doc.add_heading(f"Hurmatli {application.first_name} {application.last_name} {application.father_name}", level=1)
+    doc.add_paragraph(f"Siz {application.sciences} fanidan {application.score} ball to'pladingiz.")
+    doc.add_paragraph(f"Natija: {result_message}")
+
+    # Faylni saqlash
+    file_name = f"{application.first_name}_{application.last_name}_natija.docx"
+    doc.save(file_name)
+    return file_name
+
+def download_certificate(request, application_id):
+    application = get_object_or_404(Application, id=application_id)
+    file_path = generate_certificate(application)
+    response = FileResponse(open(file_path, 'rb'), content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    response['Content-Disposition'] = f'attachment; filename="{file_path}"'
+    return response\
+
+def application_review(request, application_id):
+    application = get_object_or_404(Application, id=application_id)
+    if request.method == "POST":
+        application.score = request.POST.get('score')
+        application.save()
+        return redirect('download_certificate', application_id=application.id)
+    return render(request, 'adminapplications.html', {'application': application})
 
 def ArchiveView(request):
     status_counts = {}

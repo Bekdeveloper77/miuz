@@ -714,9 +714,36 @@
                                             <div class="col-md-6">
                                                 <label class="d-block" for="">
                                                     <label>To`plangan ball</label>
-                                                    <input class="form-control" name="ball" value="">
+                                                    
+						    <input class="form-control" type="number" id="ball" name="ball" value="{{ ball }}">
 
                                                 </label>
+						<label for="statusball">Status:</label>
+    						<select id="statusball" name="statusball">
+        						<option class="form-control" value="O'tmadi" {% if statusball == 'O\'tmadi' %}selected{% endif %}>O'tmadi</option>
+        						<option class="form-control" value="O'tdi" {% if statusball == 'O\'tdi' %}selected{% endif %}>O'tdi</option>
+    						</select>
+                                            </div>
+						<div class="col-md-12 text-right" style="text-align:end;">
+						<form method="POST" action="{% url 'download_certificate' application.id %}">
+      	  					{% csrf_token %}
+        					<label for="score">Ball kiriting:</label>
+        					<input type="number" id="score" name="score" value="{{ application.score }}" min="0" required>
+        					<button type="submit">Word Faylni Yuklab Olish</button>
+    						</form>
+
+                                                <button type="button" onclick="save_ball()" name="dp_update"
+                                                        class="btn btn-success  pull-right btn-sm">Saqlash
+                                                </button>
+
+
+                                                <button type="button" name="dp_update"
+                                                        class="btn btn-success  pull-right btn-sm"
+                                                        style="margin-right:10px;">Word
+                                                </button>
+
+						<a href="{% url 'download_certificate' application.id %}">Sertifikatni yuklab olish</a>
+
                                             </div>
 
                                             <div class="col-md-6">
@@ -768,24 +795,9 @@
 
                                             </div>
 
-                                            <div class="col-md-12 text-right" style="text-align:end;">
-
-
-                                                <button type="button" onclick="save_ball()" name="dp_update"
-                                                        class="btn btn-success  pull-right btn-sm">Saqlash
-                                                </button>
-
-
-                                                <button type="button" name="dp_update"
-                                                        class="btn btn-success  pull-right btn-sm"
-                                                        style="margin-right:10px;">Word
-                                                </button>
-
-
-                                            </div>
-
-
+                                           
                                         </div>
+					 
 
 
                                     </fieldset>

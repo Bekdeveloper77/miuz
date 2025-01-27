@@ -239,17 +239,17 @@ margin-bottom: 0px;
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-               style="color: #24695c"
-               aria-expanded="false"><i class="fas fa-user fa-fw"></i>
-                {% if user.is_authenticated %}
-                ({{ user.username }}!)
-                <!--						<p style="color: white">Sizning email manzilingiz: {{ user.username }}</p>-->
-                {% else %}
-                <p>Siz tizimga kirmagansiz. <a href="{% url 'login' %}" style="color: white; font-weight: 500">| LOGIN
-                    |</a> sahifasiga o'ting.</p>
-                {% endif %}
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+  		 style="color: #24695c" aria-expanded="false">
+   		 <i class="fas fa-user fa-fw"></i>
+    		{% if user.is_authenticated %}
+        	({{ user.username }} !) 
+   		 {% else %}
+       		 <p>Siz tizimga kirmagansiz. 
+           	 <a href="{% url 'login' %}" style="color: white; font-weight: 500">| LOGIN |</a> sahifasiga o'ting.
+       		 </p>
+   		 {% endif %}
+	    </a>            
+		<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <!--                <li><a class="dropdown-item" href="#!">Settings</a></li>-->
                 <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                 <li>
@@ -275,8 +275,7 @@ margin-bottom: 0px;
                 <div class="profile_info">
                     <span>Welcome,</span>
                     {% if user.is_authenticated %}
-                    <h5>({{ user.username }}!)</h5>
-                    <!--						<p style="color: white">Sizning email manzilingiz: {{ user.username }}</p>-->
+                    <h5>({{ user.username }}!)</h5>{{user.first_name}}  {{user.last_name}}
                     {% else %}
                     <p>Siz tizimga kirmagansiz. <a href="{% url 'login' %}" style="color: white; font-weight: 500">|
                         LOGIN |</a> sahifasiga o'ting.</p>
@@ -286,6 +285,7 @@ margin-bottom: 0px;
             </div>
             <!-- /menu profile quick info -->
             <div class="sb-sidenav-menu">
+
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">MENU</div>
                     <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"

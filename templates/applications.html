@@ -240,9 +240,9 @@ margin-bottom: 0px;
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                style="color: #24695c"
-               aria-expanded="false"><i class="fas fa-user fa-fw"></i>
+               aria-expanded="false"><i class="fas fa-user fa-fw"></i>{{ user_name }}
                 {% if user.is_authenticated %}
-                ({{ user.username }}!)
+                ({{ user.username }}!){{ user_name }}
                 <!--						<p style="color: white">Sizning email manzilingiz: {{ user.username }}</p>-->
                 {% else %}
                 <p>Siz tizimga kirmagansiz. <a href="{% url 'login' %}" style="color: white; font-weight: 500">| LOGIN
@@ -273,10 +273,9 @@ margin-bottom: 0px;
                          alt="..." class="img-circle profile_img">
                 </div>
                 <div class="profile_info">
-                    <span>Welcome,</span>
+			<span></span> <h5>{{ user.first_name }} {{ user.last_name }}!</h5>
                     {% if user.is_authenticated %}
-                    <h5>({{ user.username }}!)</h5>
-                    <!--						<p style="color: white">Sizning email manzilingiz: {{ user.username }}</p>-->
+                    <!--<h5>({{ user.username }}!)</h5>--!} {{user.email}}                  <!--						<p style="color: white">Sizning email manzilingiz: {{ user.username }}</p>-->
                     {% else %}
                     <p>Siz tizimga kirmagansiz. <a href="{% url 'login' %}" style="color: white; font-weight: 500">|
                         LOGIN |</a> sahifasiga o'ting.</p>
@@ -456,21 +455,20 @@ margin-bottom: 0px;
 
                                                     <div class="col-md-4">
                                                         <label class="form-label" for="last_name">Familiya:</label>
-                                                        <input class="form-control" name="last_name" id="last_name"
-                                                               placeholder="Familiya" required>
+                                                        <input class="form-control" name="last_name" value="{{ request.user.last_name }}" placeholder="Familiya" required>
                                                     </div>
 
                                                     <div class="col-md-4">
                                                         <label class="form-label" for="first_name">Ism:</label>
-                                                        <input class="form-control" name="first_name" id="first_name"
-                                                               placeholder="Ism" required>
+                                                        <input class="form-control" name="first_name" value="{{ request.user.first_name }}" placeholder="Ism" required>
+
                                                     </div>
 
                                                     <div class="col-md-4">
-                                                        <label class="form-label" for="father_name">Otasining
+                                                        <label class="form-label" for="full_name">Otasining
                                                             ismi:</label>
-                                                        <input class="form-control" name="father_name" id="father_name"
-                                                               placeholder="Otasining ismi" required>
+							<input class="form-control" name="full_name" value="{{ request.user.full_name }}" placeholder="Sharif" required>
+
                                                     </div>
 
 

@@ -70,6 +70,10 @@
            cursor: pointer;
            transition: background-color 0.3s;
        }
+       button a {
+           color: white;
+	   text-decoration: none;
+      }
 
        .login-btn:hover {
            background-color: #2575fc;
@@ -107,21 +111,18 @@
                 <label for="password">Parol</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" class="login-btn"
-                    style="margin-bottom: 10px; background:#1b4c43; font-weight:700; font-size:14px">KIRISH
-            </button>
+		 <button type="submit"style="width:100%; margin-bottom: 10px; background:#1b4c43; font-weight:700; font-size:14px; color:white; padding:6px">KIRISH
+                 </button>
+		         
+		<button type="submit"style="width:100%; margin-bottom: 10px; background:#0328fc; font-weight:700; font-size:14px; color:white; padding:6px">
+              <a href="https://sso.egov.uz/sso/oauth/Authorization.do?response_type=one_code&client_id=nuu_uz&redirect_uri=https://mi.nuu.uz/callback&scope=nuu_uz&state=state">
+   	 	ONE ID ORQALI KIRISH 
+		</a>
+		</button>
 
-            <div class="form-group">
-				<a href="https://sso.egov.uz/sso/oauth/Authorization.do?response_type=one_code&client_id=nuu_uz&redirect_uri=https://malakaviy.nuu.uz/applications&scope=nuu_uz&state=testState">
-    				 <div class="row">
-        				<button type="button" class="login-btn" style="background-color:#4024a2;color:white; font-weight:700; font-size:14px">
-          				  ONE ID ORQALI KIRISH
-        				</button>
-   				 </div>
-				</a>
-	
-			</div>
-        </form>
+	    
+		       
+	</form>
         <div class="login-footer">
             
         </div>

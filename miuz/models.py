@@ -102,9 +102,11 @@ class Applications(models.Model):
     reason = models.TextField(null=True, blank=True)  # Rad etish sababi
     date = models.DateTimeField(auto_now=True, verbose_name="Ariza yuborilgan vaqti")
     created_at = models.DateTimeField(auto_now_add=True)  # Yangi maydon qo'shildi
+    score = models.IntegerField(default=0)
+    
 
     def __str__(self):
-        return f"{self.last_name} {self.first_name} ({self.directions})"
+        return f"{self.last_name} {self.first_name} ({self.score} ball)"
 
     class Meta:
         ordering = ['-created_at']  # Oxirgi qo'shilganini birinchi qilib tartiblang

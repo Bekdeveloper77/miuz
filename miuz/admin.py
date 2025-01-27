@@ -11,9 +11,10 @@ admin.site.register(Comissions)
 
 @admin.register(Applications)
 class ApplicationsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'first_name', 'last_name', 'father_name',  'organization', 'number', 'date','status', 'user',)
+    list_display = ('id', 'first_name', 'last_name', 'father_name',  'organization', 'number', 'date','status', 'user', 'score')
     search_fields = ('last_name', 'organization', 'number')
     list_filter = ('first_name','status',)
+    list_editable = ('score',)
 
 
 

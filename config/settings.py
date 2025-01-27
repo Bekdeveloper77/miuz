@@ -6,14 +6,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 from decouple import config
 
-# OneID uchun sozlamalar
-#ONEID_CLIENT_ID = config('ONEID_CLIENT_ID')
-#ONEID_CLIENT_SECRET = config('ONEID_CLIENT_SECRET')
-#ONEID_REDIRECT_URI = config('ONEID_REDIRECT_URI')
-#ONEID_AUTH_URL = 'https://sso.egov.uz/sso/oauth/Authorization.do'  # Auth Endpoint
-#ONEID_TOKEN_URL = 'https://sso.egov.uz/sso/oauth/Authorization.do'  # Token Endpoint
-#ONEID_REDIRECT_URI = 'https://malakaviy.nuu.uz/applications/'  # Callback URL (loyihangizga moslang)
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -24,19 +16,8 @@ SECRET_KEY = 'SECRET_KEY'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['malakaviy.nuu.uz', 'localhost']
+ALLOWED_HOSTS = ['malakaviy.nuu.uz', 'mi.nuu.uz', 'localhost']
 
-
-
-#foydalanuvchini chiqarib yuborish
-# Sessiya muddatini 10 daqiqaga o'rnatish (sekundlarda)
-SESSION_COOKIE_AGE = 2000
-
-# Sessiya avtomatik uzaytirilmasligi uchun
-SESSION_SAVE_EVERY_REQUEST = True
-
-# Brauzerni yopganda sessiya tugashini faollashtirish
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Application definition
 
@@ -52,8 +33,31 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',  
-]
+    'allauth.socialaccount.providers.oauth2',
+    ]
+
+
+# OneID uchun sozlamalar
+ONEID_CLIENT_ID = config('ONEID_CLIENT_ID')
+ONEID_CLIENT_SECRET = config('ONEID_CLIENT_SECRET')
+ONEID_AUTH_URL = 'https://sso.egov.uz/sso/oauth/Authorization.do'
+ONEID_TOKEN_URL = 'https://sso.egov.uz/sso/oauth/Authorization.do'
+ONEID_USER_INFO_URL = 'https://sso.egov.uz/sso/oauth/Authorization.do'
+# settings.py
+ONEID_REDIRECT_URI = 'https://mi.nuu.uz/callback/'  # URL oxirida "/" borligiga ishonch hosil qiling
+
+
+SITE_ID = 1
+OAUTH2_PROVIDER = {
+    'SCOPES': {
+        'read': 'Read scope',
+        'write': 'Write scope',
+    },
+
+    'CLIENT_ID_GENERATOR_CLASS': 'oauth2_provider.generators.ClientIdGenerator',
+
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -89,7 +93,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 INSTALLED_APPS += ['crispy_forms']
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -120,6 +123,25 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+#foydalanuvchini chiqarib yuborish
+# Sessiya muddatini 20 daqiqaga o'rnatish (sekundlarda)
+SESSION_COOKIE_AGE = 7200
+
+# Sessiya avtomatik uzaytirilmasligi uchun
+SESSION_SAVE_EVERY_REQUEST = True
+
+# Brauzerni yopganda sessiya tugashini faollashtirish
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Sessiya ma'lumotlarini ma'lumotlar bazasida saqlash
+#SESSION_COOKIE_SECURE = False  # HTTPS ishlatilmasa vaqtincha False qiling
+SESSION_COOKIE_HTTPONLY = True  # JS tomonidan sessiyani o'qishdan himoya
+SESSION_COOKIE_SAMESITE = 'Lax'  # Sessiya cookie'sini faqat mos keluvchi domenlarda yuborish
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Brauzer yopilganda sessiya o'chib ketmasligi
+#SESSION_COOKIE_SAMESITE = None
+SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -143,11 +165,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-AUTHENTICATION_BACKENDS = (
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
-
-SITE_ID = 1
 
 # Kirishdan so'ng foydalanuvchi qayerga o'tishini belgilash
 # settings.py
@@ -157,18 +174,35 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 
 # HTTPSni majburiy qilish
-SECURE_SSL_REDIRECT = True
+#SECURE_SSL_REDIRECT = True
+
+
+#LOGGING = {
+#    'version': 1,
+#    'disable_existing_loggers': False,
+#    'handlers': {
+#        'console': {
+#            'class': 'logging.StreamHandler',
+#        },
+#    },
+#    'loggers': {
+#        'django': {
+#            'handlers': ['console'],
+#            'level': 'DEBUG',
+#        },
+#    },
+#}
+
+
 
 # Cookie xavfsizligi
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-LOGIN_REDIRECT_URL = 'applications/'  # Tizimga kirgandan keyin yo'naltirish
-LOGOUT_REDIRECT_URL = '/'  # Logoutdan keyin yo'naltirish
-LOGIN_URL = '/'  # Login bo'lmagan holatda yo'naltirish
+# settings.py
+LOGIN_URL = '/'  # Login sahifasi
+LOGIN_REDIRECT_URL = '/applications/'  # Autentifikatsiyadan keyin yo'naltirish
+LOGOUT_REDIRECT_URL = '/'  # Chiqishdan keyin yo'naltirish
