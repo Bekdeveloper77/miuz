@@ -3,7 +3,7 @@
 __pycache__/
 db.sqlite3
 .env
-
+venv/
 # Media va statik fayllar
 /media/
 /static/
