@@ -5,6 +5,7 @@
 
     <div class="container-fluid px-4">
         <h1 class="mt-4">PhD Exam</h1>
+	
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">MALAKAVIY IMTIHON</li>
         </ol>
@@ -122,21 +123,21 @@
 
                                                     <div class="col-md-4">
                                                         <label class="form-label" for="last_name">Familiya:</label>
-                                                        <input class="form-control" name="last_name" id="last_name"
-                                                               placeholder="Familiya" required>
+                                                        <input class="form-control" name="last_name" id="last_name" 
+                                                               placeholder="Familiya" value="{{ request.user.last_name }}" required>
                                                     </div>
 
                                                     <div class="col-md-4">
                                                         <label class="form-label" for="first_name">Ism:</label>
                                                         <input class="form-control" name="first_name" id="first_name"
-                                                               placeholder="Ism" required>
+                                                               placeholder="Ism" value="{{ request.user.first_name }}" required>
                                                     </div>
 
                                                     <div class="col-md-4">
-                                                        <label class="form-label" for="father_name">Otasining
+                                                        <label class="form-label" for="mid_name">Otasining
                                                             ismi:</label>
-                                                        <input class="form-control" name="father_name" id="father_name"
-                                                               placeholder="Otasining ismi" required>
+                                                        <input class="form-control" name="mid_name" id="mid_name"
+                                                               placeholder="Otasining ismi" value="{{ request.user.mid_name }}">
                                                     </div>
 
 
@@ -264,7 +265,7 @@
                                                                 <div class="col-md-6">
 
                                                                     <label class="form-label">Telefon raqam:</label><br>
-                                                                <input class="form-control phone-input" type="text" id="phone_number" name="phone_number" placeholder="+998 XX XXX-XX-XX" required>
+                                                                <input class="form-control phone-input" type="text" id="phone_number" name="phone_number" placeholder="+998 XX XXX-XX-XX" value="" maxlength="13" required>
 
                                                                 </div>
 
@@ -316,7 +317,7 @@
                                                                 <div class="col-md-6">
 
                                                                     <label class="form-label">Telefon raqam:</label><br>
-                                                                    <input class="form-control phone-input" type="text" id="phone_number_2" name="phone_number_2" placeholder="+998 XX XXX-XX-XX" required>
+                                                                    <input class="form-control phone-input" type="text" id="phone_number" name="phone_number" placeholder="+998 XX XXX-XX-XX" value="" maxlength="13" required>
 
 
 
@@ -399,7 +400,7 @@
                                             aria-label="Close"></button>
                                 </div>
 
-                                <form method="GET" action="{% url 'adminapplications' %}">
+                                <form method="GET" action="{% url 'admin_applications' %}">
                                     <div class="modal-body">
                                         <div class="mb-3">
                                             <label for="science" class="form-label">FAN</label>
@@ -459,7 +460,7 @@
                     {% for application in applications %}
                     <tr id="row_{{ application.id }}">
                         <td>{{ application.id }}</td>
-                        <td>{{ application.last_name }} {{ application.first_name }} {{ application.father_name }}</td>
+                        <td>{{ application.last_name }} {{ application.first_name }} {{ application.mid_name }}</td>
                         <td>{{ application.directions }}</td>
                         <td>{{ application.organization }}</td>
                         <td>{{ application.sciences }}</td>
@@ -711,41 +712,7 @@
                                             <label class="form-label"></label>
 
 
-                                            <div class="col-md-6">
-                                                <label class="d-block" for="">
-                                                    <label>To`plangan ball</label>
-                                                    
-						    <input class="form-control" type="number" id="ball" name="ball" value="{{ ball }}">
-
-                                                </label>
-						<label for="statusball">Status:</label>
-    						<select id="statusball" name="statusball">
-        						<option class="form-control" value="O'tmadi" {% if statusball == 'O\'tmadi' %}selected{% endif %}>O'tmadi</option>
-        						<option class="form-control" value="O'tdi" {% if statusball == 'O\'tdi' %}selected{% endif %}>O'tdi</option>
-    						</select>
-                                            </div>
-						<div class="col-md-12 text-right" style="text-align:end;">
-						<form method="POST" action="{% url 'download_certificate' application.id %}">
-      	  					{% csrf_token %}
-        					<label for="score">Ball kiriting:</label>
-        					<input type="number" id="score" name="score" value="{{ application.score }}" min="0" required>
-        					<button type="submit">Word Faylni Yuklab Olish</button>
-    						</form>
-
-                                                <button type="button" onclick="save_ball()" name="dp_update"
-                                                        class="btn btn-success  pull-right btn-sm">Saqlash
-                                                </button>
-
-
-                                                <button type="button" name="dp_update"
-                                                        class="btn btn-success  pull-right btn-sm"
-                                                        style="margin-right:10px;">Word
-                                                </button>
-
-						<a href="{% url 'download_certificate' application.id %}">Sertifikatni yuklab olish</a>
-
-                                            </div>
-
+                                           
                                             <div class="col-md-6">
                                                 <label class="d-block" for="">
                                                     <label>Imtihon sana</label>

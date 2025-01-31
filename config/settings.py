@@ -14,9 +14,9 @@ from decouple import config
 SECRET_KEY = 'SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['malakaviy.nuu.uz', 'mi.nuu.uz', 'localhost']
+ALLOWED_HOSTS = ['malakaviy.nuu.uz', 'localhost']
 
 
 # Application definition
@@ -124,22 +124,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 #foydalanuvchini chiqarib yuborish
-# Sessiya muddatini 20 daqiqaga o'rnatish (sekundlarda)
-SESSION_COOKIE_AGE = 7200
-
-# Sessiya avtomatik uzaytirilmasligi uchun
-SESSION_SAVE_EVERY_REQUEST = True
-
-# Brauzerni yopganda sessiya tugashini faollashtirish
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-
-SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Sessiya ma'lumotlarini ma'lumotlar bazasida saqlash
-#SESSION_COOKIE_SECURE = False  # HTTPS ishlatilmasa vaqtincha False qiling
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Sessiya ma'lumotlarini DB da saqlash
+SESSION_COOKIE_AGE = 1200  # 20 daqiqa (sekundlarda)
+SESSION_SAVE_EVERY_REQUEST = True  # Har bir so‘rovda sessiya yangilanadi
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Brauzerni yopganda sessiya saqlansin
+SESSION_COOKIE_SECURE = True  # HTTPS ishlatilayotgan bo‘lsa True
 SESSION_COOKIE_HTTPONLY = True  # JS tomonidan sessiyani o'qishdan himoya
-SESSION_COOKIE_SAMESITE = 'Lax'  # Sessiya cookie'sini faqat mos keluvchi domenlarda yuborish
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Brauzer yopilganda sessiya o'chib ketmasligi
-#SESSION_COOKIE_SAMESITE = None
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SAMESITE = 'Lax'  # Faqat shu domen uchun cookie yuborish
 #CSRF_COOKIE_SECURE = True
 
 # Internationalization
@@ -155,6 +146,10 @@ USE_TZ = False  # Mahalliy vaqt zonasida saqlash uchun
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
+
+
+AUTH_USER_MODEL = 'miuz.CustomUser'
+
 
 
 STATICFILES_DIRS = [
@@ -177,22 +172,24 @@ SECURE_HSTS_PRELOAD = True
 #SECURE_SSL_REDIRECT = True
 
 
-#LOGGING = {
-#    'version': 1,
-#    'disable_existing_loggers': False,
-#    'handlers': {
-#        'console': {
-#            'class': 'logging.StreamHandler',
-#        },
-#    },
-#    'loggers': {
-#        'django': {
-#            'handlers': ['console'],
-#            'level': 'DEBUG',
-#        },
-#    },
-#}
-
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/var/www/html/miuz/debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 
 # Cookie xavfsizligi

@@ -13,7 +13,7 @@ class ApplicationForm(forms.ModelForm):
                                         label="Ta'lim turi")
     class Meta:
         model = Applications
-        fields = ['first_name', 'last_name', 'father_name', 'directions',
+        fields = ['first_name', 'last_name', 'mid_name', 'directions',
             'sciences', 'type_edu', 'organization', 'number',
             'oak_decision', 'work_order', 'reference_letter', 'application']
 

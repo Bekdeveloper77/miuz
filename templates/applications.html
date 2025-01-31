@@ -238,27 +238,13 @@ margin-bottom: 0px;
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-               style="color: #24695c"
-               aria-expanded="false"><i class="fas fa-user fa-fw"></i>{{ user_name }}
-                {% if user.is_authenticated %}
-                ({{ user.username }}!){{ user_name }}
-                <!--						<p style="color: white">Sizning email manzilingiz: {{ user.username }}</p>-->
-                {% else %}
-                <p>Siz tizimga kirmagansiz. <a href="{% url 'login' %}" style="color: white; font-weight: 500">| LOGIN
-                    |</a> sahifasiga o'ting.</p>
-                {% endif %}
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <!--                <li><a class="dropdown-item" href="#!">Settings</a></li>-->
-                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                <li>
-                    <hr class="dropdown-divider"/>
-                </li>
-                <li><a class="dropdown-item" href="{% url 'login' %}"><b>
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</b></a></li>
-            </ul>
-        </li>
+            <a class="nav-link" href="{% url 'login' %}" style="color: #24695c"><i class="fas fa-user fa-fw"></i> 
+		<b> 
+		Logout
+		</b>
+                </a>
+		
+              </li>
     </ul>
 </nav>
 
@@ -273,22 +259,23 @@ margin-bottom: 0px;
                          alt="..." class="img-circle profile_img">
                 </div>
                 <div class="profile_info">
-			<span></span> <h5>{{ user.first_name }} {{ user.last_name }}!</h5>
+		 <h7 style="font-family:math">{{ request.user.last_name }} {{ request.user.first_name }}  {{ request.user.mid_name }}!</h7>
                     {% if user.is_authenticated %}
-                    <!--<h5>({{ user.username }}!)</h5>--!} {{user.email}}                  <!--						<p style="color: white">Sizning email manzilingiz: {{ user.username }}</p>-->
+                    <!--<h5>({{ request.user.username }}!)</h5>--!}
+			
+                  <!--<p style="color: white">Sizning email manzilingiz: {{ user.username }}</p>-->
                     {% else %}
                     <p>Siz tizimga kirmagansiz. <a href="{% url 'login' %}" style="color: white; font-weight: 500">|
                         LOGIN |</a> sahifasiga o'ting.</p>
                     {% endif %}
-                    <!--                    <h2>Admin</h2>-->
+                    
                 </div>
             </div>
             <!-- /menu profile quick info -->
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">MENU</div>
-                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
-                       href="{% url 'applications' %}">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'applications' request.user.pin %}">
                         <div class="sb-nav-link-icon"><i class="fa-solid fas fa-list"></i></div>
                         Arizalar
                     </a>
@@ -390,40 +377,10 @@ margin-bottom: 0px;
 
                                 <div class="modal-dialog modal-lg" role="document">
 
-                                    <!--                            &lt;!&ndash; FORM&ndash;&gt;-->
-                                    <!--                            <form method="POST" action="" enctype="multipart/form-data">-->
-                                    <!--                                <input type="hidden" name="item_id" value="2761">-->
-                                    <!--                                <div class="modal-content">-->
-
-
-                                    <!--                                    <div class="modal-header">-->
-                                    <!--                                        <h5 class="modal-title" id="add_item">Ariza ma`lumotlarini kiritish</h5>-->
-                                    <!--                                        <button class="btn-close" type="button" data-bs-dismiss="modal"-->
-                                    <!--                                                aria-label="Close"></button>-->
-                                    <!--                                    </div>-->
-
-
-                                    <!--                                    <div class="modal-body" style="height:auto;">-->
-                                    <!--                                        <form action="{% url 'applications' %}" method="post"-->
-                                    <!--                                              enctype="multipart/form-data">-->
-                                    <!--                                            {% csrf_token %}-->
-                                    <!--                                            {{ form.as_p }}-->
-                                    <!--                                            <button type="submit" class="btn btn-primary" id="submit-btn">-->
-                                    <!--                                                Yuborish-->
-                                    <!--                                            </button>-->
-
-                                    <!--                                        </form>-->
-                                    <!--                                    </div>-->
-
-                                    <!--                                  -->
-                                    <!--                                </div>-->
-                                    <!--                            </form>-->
-                                    <!--                            &lt;!&ndash; FORM END &ndash;&gt;-->
-
 
                                     <!-- FORM-->
 
-                                                               <form method="POST" enctype="multipart/form-data">
+                                <form method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
 
                                 <!--                                <input type="hidden" name="item_id" value="">-->
@@ -455,20 +412,21 @@ margin-bottom: 0px;
 
                                                     <div class="col-md-4">
                                                         <label class="form-label" for="last_name">Familiya:</label>
-                                                        <input class="form-control" name="last_name" value="{{ request.user.last_name }}" placeholder="Familiya" required>
+                                                        <input class="form-control" name="last_name" id="last_name" 
+                                                               placeholder="Familiya" value="{{ request.user.last_name }}" required>
                                                     </div>
 
                                                     <div class="col-md-4">
                                                         <label class="form-label" for="first_name">Ism:</label>
-                                                        <input class="form-control" name="first_name" value="{{ request.user.first_name }}" placeholder="Ism" required>
-
+                                                        <input class="form-control" name="first_name" id="first_name"
+                                                               placeholder="Ism" value="{{ request.user.first_name }}" required>
                                                     </div>
 
                                                     <div class="col-md-4">
-                                                        <label class="form-label" for="full_name">Otasining
+                                                        <label class="form-label" for="father_name">Otasining
                                                             ismi:</label>
-							<input class="form-control" name="full_name" value="{{ request.user.full_name }}" placeholder="Sharif" required>
-
+                                                        <input class="form-control" name="father_name" id="father_name"
+                                                               placeholder="Otasining ismi" value="{{ request.user.mid_name }}" required>
                                                     </div>
 
 
@@ -596,12 +554,7 @@ margin-bottom: 0px;
                                                                 <div class="col-md-6">
 
                                                                     <label class="form-label">Telefon raqam:</label><br>
-                                                                    <input class="form-control" type="text"
-                                                                           id="phone_number" name="phone_number"
-                                                                           placeholder="+998 XX XXX XX XX"
-                                                                           pattern="\+998 \d{2} \d{3} \d{2} \d{2}"
-                                                                           required>
-
+                                                                <input class="form-control phone-input" type="text" id="phone_number" name="phone_number" placeholder="+998 XX XXX-XX-XX" required>
 
                                                                 </div>
 
@@ -653,11 +606,8 @@ margin-bottom: 0px;
                                                                 <div class="col-md-6">
 
                                                                     <label class="form-label">Telefon raqam:</label><br>
-                                                                    <input class="form-control" type="text"
-                                                                           id="phone_number" name="phone_number"
-                                                                           placeholder="+998 XX XXX XX XX"
-                                                                           pattern="\+998 \d{2} \d{3} \d{2} \d{2}"
-                                                                           required>
+                                                                    <input class="form-control phone-input" type="text" id="phone_number" name="phone_number" placeholder="+998 XX XXX-XX-XX" required>
+
 
 
                                                                 </div>
@@ -716,6 +666,7 @@ margin-bottom: 0px;
 
                                 </div>
                             </form>
+
 
                                     <!-- FORM END -->
 
@@ -805,7 +756,7 @@ margin-bottom: 0px;
                             <!--                                            aria-label="Close"></button>-->
                             <!--                                </div>-->
 
-                            <!--                                <form method="GET" action="{% url 'adminapplications' %}">-->
+                            <!--                                <form method="GET" action="{% url 'applications' user=request.user.pin  %}">-->
                             <!--                                    <div class="modal-body">-->
                             <!--                                        <div class="mb-3">-->
                             <!--                                            <label for="science" class="form-label">FAN</label>-->
@@ -863,9 +814,9 @@ margin-bottom: 0px;
                             </thead>
                             <tbody>
                             {% for application in applications %}
-                            <tr id="row_{{ application.id }}">
+                            <tr id="row_{{ application.user_id }}">
                                 <td>{{ application.id }}</td>
-                                <td>{{ application.last_name }} {{ application.first_name }} {{ application.father_name }}</td>
+                                <td>{{ application.last_name }} {{ application.first_name }} {{ application.mid_name }}</td>
                                 <td>{{ application.directions }}</td>
                                 <td>{{ application.organization }}</td>
                                 <td>{{ application.sciences }}</td>
@@ -943,7 +894,7 @@ margin-bottom: 0px;
                                                     <div class="col-md-12">
                                                         <label class="form-label">F.I.SH:</label><br>
                                                         <b>{{application.last_name}} {{application.first_name}}
-                                                            {{application.father_name}}</b>
+                                                            {{application.mid_name}}</b>
                                                     </div>
 
                                                 </div>
@@ -969,7 +920,7 @@ margin-bottom: 0px;
 
                                                 </div>
                                                 <div class="row" style="padding:10px;">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-12">
                                                         <label class="form-label">Ariza holati:</label><br>
                                                         {% if application.status == 'rejected' %}
                                                         <b style="color: red">Rad etilgan</b>
@@ -1090,7 +1041,7 @@ margin-bottom: 0px;
 
 </script>
 <script>
-    let timeout = 10 * 60 * 1000; // 10 daqiqa
+    let timeout = 20 * 60 * 1000; // 20 daqiqa
 setTimeout(() => {
     alert("Sizning seansingiz tugadi. Iltimos, qayta tizimga kiring.");
     window.location.href = "/login/"; // Login sahifasiga yo'naltirish
@@ -1115,32 +1066,6 @@ setTimeout(() => {
 
 
     function toggleCollapse(section) {
-        // Collapse elementlarni olish
-        const milliyCheckbox = document.querySelector('input[name="chb_milliy"]');
-        const boshqaCheckbox = document.querySelector('input[name="chb_boshqa"]');
-        const milliyCollapse = document.getElementById('milliy_collapse');
-        const boshqaCollapse = document.getElementById('boshqa_collapse');
-
-        // Collapse bo'limlarni boshqarish va checkboxlarni nazorat qilish
-        if (section === 'milliy') {
-            if (milliyCheckbox.checked) {
-                milliyCollapse.style.display = 'block';
-                boshqaCollapse.style.display = 'none';
-                boshqaCheckbox.checked = false; // Ikkinchi checkboxni o'chirish
-            } else {
-                milliyCollapse.style.display = 'none';
-            }
-        } else if (section === 'boshqa') {
-            if (boshqaCheckbox.checked) {
-                boshqaCollapse.style.display = 'block';
-                milliyCollapse.style.display = 'none';
-                milliyCheckbox.checked = false; // Birinchi checkboxni o'chirish
-            } else {
-                boshqaCollapse.style.display = 'none';
-            }
-        }
-    }
-function toggleCollapse(section) {
         // Collapse elementlarni olish
         const milliyCheckbox = document.querySelector('input[name="chb_milliy"]');
         const boshqaCheckbox = document.querySelector('input[name="chb_boshqa"]');
@@ -1429,7 +1354,7 @@ renderCalendar(currentDate);
 
         if (directionId) {
             // AJAX so'rovi yuborish
-            fetch("{% url 'adminapplications' %}?direction_id=" + directionId, {
+            fetch("{% url 'admin_applications' %}?direction_id=" + directionId, {
                 method: 'GET',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'

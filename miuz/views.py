@@ -4,12 +4,13 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from docx import Document
+from django.urls import reverse
 
 import io
 from django.contrib.auth import authenticate, login, logout
 from .forms import ApplicationForm, ScienceForm, GroupForm
 from django.contrib import messages
-from .models import Applications, Edutype, Sciences, Groups, Comissions
+from .models import Applications, Edutype, Sciences, Groups, Comissions, CustomUser, ExamResult   
 from openpyxl import Workbook
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -23,10 +24,16 @@ import uuid
 import requests
 from urllib.parse import urlencode
 from django.views.decorators.csrf import csrf_exempt
+from django.utils import timezone
 
-
-
-
+import json
+import logging
+import random
+import string
+# Log yozish uchun loggerni yaratish
+logger = logging.getLogger(__name__)
+from PIL import Image, ImageDraw, ImageFont
+from io import BytesIO
 # Create your views here.
 # Login View
 
@@ -38,14 +45,14 @@ def LoginView(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('home' if user.is_superuser else 'applications')
         else:
             return HttpResponse("Invalid login credentials", status=400)
 
     if request.GET.get("oneid_login"):
         # Avvalgi sessiyadagi state qiymatini tozalash
         if 'oauth_state' in request.session:
-            del request.session['oauth_state']
+    	    del request.session['oauth_state']  # Avvalgi sessiya ma'lumotlarini o'chirish
     
         # Yangi state yaratish
         state = str(uuid.uuid4())
@@ -64,99 +71,100 @@ def LoginView(request):
     return render(request, 'login.html')
 
 
+def logout(request):
+    logout(request)  # Foydalanuvchini tizimdan chiqaradi
+    
+    return redirect('login')
+
+
+
+def generate_new_pin(length=6):
+    """Yangi pin yaratish uchun funksiya."""
+    return ''.join(random.choices(string.digits, k=length))
+
 
 def callback(request):
     # URL'dan code va state qiymatini olish
     code = request.GET.get('code')
-    
     if not code:
         return HttpResponse("Authorization code missing", status=400)
 
     # Token olish uchun OneID API'ga so'rov yuborish
-    token_url = "https://sso.egov.uz/sso/oauth/Authorization.do"  # Token olish URL
+    token_url = "https://sso.egov.uz/sso/oauth/Authorization.do"
     data = {
-        'grant_type': 'one_authorization_code',  # OAUTH grant_type
-        'client_id': settings.ONEID_CLIENT_ID,  # Administrator tomonidan taqdim etilgan client_id
-        'client_secret': settings.ONEID_CLIENT_SECRET,  # Administrator tomonidan taqdim etilgan client_secret
-        'code': code,  # URL'dan olingan authorization code
-        'redirect_uri': settings.ONEID_REDIRECT_URI,  # To'g'ri redirect_uri
+        'grant_type': 'one_authorization_code',
+        'client_id': settings.ONEID_CLIENT_ID,
+        'client_secret': settings.ONEID_CLIENT_SECRET,
+        'code': code,
+        'redirect_uri': settings.ONEID_REDIRECT_URI,
     }
 
-    # So'rov yuborish
     response = requests.post(token_url, data=data)
-
-    # So'rov javobini tekshirish
-    print("Response Status Code:", response.status_code)
-    print("Response Text:", response.text)
-    try:
-        print("Response JSON:", response.json())  # Agar JSON shaklida javob kelsa
-    except ValueError:
-        pass  # Agar JSON formatida bo'lmasa
-
     if response.status_code != 200:
         return HttpResponse(f"Error fetching access token: {response.text}", status=400)
 
-    # So'rov muvaffaqiyatli bo'lsa, access_token olish
     token_data = response.json()
     access_token = token_data.get('access_token')
-
+    
     if not access_token:
         return HttpResponse(f"Access token not found in response: {token_data}", status=400)
 
-    # Token bilan foydalanuvchi ma'lumotlarini olish
-    user_info_url = "https://sso.egov.uz/sso/oauth/Authorization.do"  # Foydalanuvchi ma'lumotlarini olish URL
+    # Foydalanuvchi haqida ma'lumot olish
+    user_info_url = "https://sso.egov.uz/sso/oauth/Authorization.do"
     user_info_data = {
-        'grant_type': 'one_access_token_identify',  # Token orqali foydalanuvchi ma'lumotlarini olish
-        'client_id': settings.ONEID_CLIENT_ID,  # Administrator tomonidan taqdim etilgan client_id
-        'client_secret': settings.ONEID_CLIENT_SECRET,  # Administrator tomonidan taqdim etilgan client_secret
-        'access_token': access_token,  # Olingan access_token
-        'scope': 'myportal',  # Administrator tomonidan taqdim etilgan scope
+        'grant_type': 'one_access_token_identify',
+        'client_id': settings.ONEID_CLIENT_ID,
+        'client_secret': settings.ONEID_CLIENT_SECRET,
+        'access_token': access_token,
+        'scope': 'myportal',
     }
 
-   # Foydalanuvchi ma'lumotlarini olish uchun so'rov yuborish
     user_info_response = requests.post(user_info_url, data=user_info_data)
 
     if user_info_response.status_code == 200:
-        # JSON formatda qaytgan barcha ma'lumotlarni chop etish
-        print("OneID javobi:", user_info_response.json())
-    
-        # Foydalanuvchi ma'lumotlarini olish
         user_info = user_info_response.json()
-    
-        # Bu yerda o'zgarishlar qilishingiz mumkin
-        user, created = User.objects.get_or_create(
-            username=user_info['user_id'], 
+        # OneID'dan username yo'q, lekin user_id va pin mavjud
+        user_id = user_info.get('user_id', '')
+        pin = user_info.get('pin', '')
+
+        # Pin orqali username yaratish
+        username = pin  # 'pin' ni username sifatida ishlatish
+
+        # Agar foydalanuvchi tizimga kirayotgan bo'lsa, avvalgi pinni o'chirib, yangisini saqlash
+        if pin:
+            # Foydalanuvchi topilib, pinni yangilash
+            user = CustomUser.objects.filter(pin=pin).first()
+            if user:
+                user.pin = generate_new_pin()  # Yangi pin yaratish yoki saqlash
+                user.save()
+
+        user, created = CustomUser.objects.update_or_create(
+            username=username,  # Pin-ni username sifatida ishlatamiz
             defaults={
                 'first_name': user_info.get('first_name', ''),
                 'last_name': user_info.get('sur_name', ''),
-                'full_name': user_info.get('full_name', ''),  # Agar email mavjud bo'lsa, saqlanadi
+                'mid_name': user_info.get('mid_name', ''),
+                'pin': pin,
             }
         )
 
-        if created:
-            message = "Foydalanuvchi yaratildi."
-        else:
-            message = "Foydalanuvchi avvaldan mavjud."
+        if not created:  # Agar foydalanuvchi mavjud bo'lsa, ularni yangilash
+            user.first_name = user_info.get('first_name', '')
+            user.last_name = user_info.get('sur_name', '')
+            user.mid_name = user_info.get('mid_name', '')
 
-        # Javob qaytarish
-        return JsonResponse({
-            "status": "success",
-            "message": message,
-            "user": {
-                "username": user.username,
-                "first_name": user.first_name,
-                "last_name": user.last_name,
-                "full_name": user.full_name,
-            }
-        })
+        user.oneid_login_time = timezone.now()  # Hozirgi vaqtni saqlash
+        user.save()
 
-        # Foydalanuvchini tizimga kiritish
-        login(request, user)
-        next_url = request.GET.get('next', 'applications')
+        login(request, user)  # Foydalanuvchini tizimga kiriting
+
+        # 'next' parametri mavjud bo'lsa, unga o'tish, bo'lmasa 'applications'ga yo'naltirish
+        next_url = request.GET.get('next', reverse('applications', kwargs={'user': request.user.pin}))
         return redirect(next_url)
     else:
-        print("Error fetching user info:", user_info_response.text)
         return HttpResponse(f"Error fetching user info: {user_info_response.text}", status=400)
+
+
 
 
 @login_required
@@ -296,20 +304,109 @@ def export_excelgroup(request):
     return response
 
 
-def admin_applicationfilter(request):
+def admin_applicationfilter_user(request, user):
+    # URL parametridan foydalanuvchi (pin) ma'lumotlarini olish
+    user_instance = get_object_or_404(CustomUser, pin=user)
+    
+    # Foydalanuvchi uchun arizalar
+    applications = Applications.objects.filter(user=user_instance).order_by('-created_at')
+
+   
+    # Tanlangan direction (ixtisoslik) bo'yicha fanlarni filtrlash
+    direction_id = request.GET.get('direction_id')
+    if direction_id:
+        sciences = Sciences.objects.filter(directions_id=direction_id)
+    else:
+        sciences = Sciences.objects.all()
+
+    science_list = [{'id': science.id, 'name': science.name} for science in sciences]
+
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        return JsonResponse({'sciences': science_list})
+
+    type_edu = Edutype.objects.all()
+    directions = Groups.objects.all()
+    # POST so'rovini tekshirish
+    if request.method == 'POST':
+        # Foydalanuvchi ma'lumotlarini avtomatik olish
+        first_name = request.POST.get('first_name', request.user.first_name)
+        last_name = request.POST.get('last_name', request.user.last_name)
+        mid_name = request.POST.get('mid_name', request.user.mid_name)
+        
+        directions_obj = get_object_or_404(Groups, id=request.POST.get("directions"))
+        sciences_obj = get_object_or_404(Sciences, id=request.POST.get("sciences"))
+        type_edu_obj = get_object_or_404(Edutype, id=request.POST.get("type_edu"))
+
+        # Talabgor tomonidan tanlangan fandan ariza yuborilganligini tekshirish
+        existing_application = Applications.objects.filter(
+            user__id=request.user.id,
+            sciences=sciences_obj
+        ).exists()
+
+        if existing_application:
+            messages.error(request, "Siz ushbu fandan allaqachon ariza yuborgansiz!")
+            return render(request, "applications.html", locals())
+
+        application_file = request.FILES.get("applications")
+        if application_file and application_file.size > 5 * 1024 * 1024:
+            messages.error(request, "Ariza hajmi 5MB dan oshmasligi kerak!")
+            return render(request, "applications.html", locals())
+
+        organization_name = None
+        if request.POST.get("chb_milliy") == "UZMU":
+            organization_name = "UZMU"
+        elif request.POST.get("chb_boshqa") == "other":
+            organization_name = request.POST.get("organization_name")
+
+        phone_number = request.POST.get("phone_number", "").replace(' ', '').replace('-', '').strip()
+        
+        # Obyekt yaratish
+        Applications.objects.create(
+            user=CustomUser.objects.get(id=request.user.id),
+            first_name=first_name,
+            last_name=last_name,
+            mid_name=mid_name,
+            directions=directions_obj,
+            sciences=sciences_obj,
+            type_edu=type_edu_obj,
+            organization=organization_name,
+            number=phone_number,
+            oak_decision=request.FILES.get("oak_decision"),
+            work_order=request.FILES.get("work_order"),
+            reference_letter=request.FILES.get("reference_letter"),
+            application=application_file,
+        )
+
+        messages.success(request, "Ariza muvaffaqiyatli yuborildi!")
+        return redirect(reverse('applications', kwargs={'user': request.user.pin}))
+   
+    context = {
+        'applications': applications,
+        'sciences': science_list,
+        'type_edu': type_edu,
+        'directions': directions,
+	'selected_direction_id': direction_id,  # Tanlangan direction ID'si
+    }
+
+    return render(request, 'applications.html', context)
+
+
+# Admin uchun arizalarni filtrlash
+@login_required
+def admin_applicationfilter_admin(request):
     # Status bo'yicha statistik ma'lumotlarni yig'ish
     status_counts = {status: Applications.objects.filter(status=status).count() for status, _ in Applications.STATUS_CHOICES}
 
     selected_science = request.GET.get('science')  # Fan nomi
     selected_status = request.GET.get('status')  # Ariza holati
 
-    # Hamma kerakli ma'lumotlarni olish
-    if request.user.is_staff:
-        applications = Applications.objects.all()
-    else:
-        applications = Applications.objects.filter(user=request.user)
+    if not request.user.is_authenticated:
+        return redirect('login')  # Foydalanuvchini login sahifasiga yo'naltirish
 
-    applications = applications.order_by('-created_at')
+    if request.user.is_staff:
+        applications = Applications.objects.all().order_by('-created_at')
+    else:
+        applications = Applications.objects.filter(user=request.user).order_by('-created_at')
 
     # Tanlangan direction (ixtisoslik) bo'yicha fanlarni filtrlash
     direction_id = request.GET.get('direction_id')
@@ -323,7 +420,6 @@ def admin_applicationfilter(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         return JsonResponse({'sciences': science_list})
 
-
     type_edu = Edutype.objects.all()
     directions = Groups.objects.all()
     statuses = Applications.STATUS_CHOICES
@@ -336,39 +432,46 @@ def admin_applicationfilter(request):
 
     # POST so'rovini tekshirish
     if request.method == 'POST':
-         # Foydalanuvchi ma'lumotlarini avtomatik olish
+        # Foydalanuvchi ma'lumotlarini avtomatik olish
         first_name = request.POST.get('first_name', request.user.first_name)
         last_name = request.POST.get('last_name', request.user.last_name)
-        full_name = request.POST.get('full_name', request.user.full_name)
+        mid_name = request.POST.get('mid_name', request.user.mid_name)
+        
         directions_obj = get_object_or_404(Groups, id=request.POST.get("directions"))
         sciences_obj = get_object_or_404(Sciences, id=request.POST.get("sciences"))
         type_edu_obj = get_object_or_404(Edutype, id=request.POST.get("type_edu"))
+
         # Talabgor tomonidan tanlangan fandan ariza yuborilganligini tekshirish
         existing_application = Applications.objects.filter(
-            user=request.user,
+            user__id=request.user.id,
             sciences=sciences_obj
         ).exists()
 
         if existing_application:
             messages.error(request, "Siz ushbu fandan allaqachon ariza yuborgansiz!")
             return render(request, "applications.html", locals())
+
         application_file = request.FILES.get("applications")
         if application_file and application_file.size > 5 * 1024 * 1024:
             messages.error(request, "Ariza hajmi 5MB dan oshmasligi kerak!")
             return render(request, "applications.html", locals())
 
+       	# Telefon raqamining to'g'ri kiritilganligini tekshirish
+        phone_number = request.POST.get("phone_number", "").replace(' ', '').replace('-', '').strip()
+	
         organization_name = None
         if request.POST.get("chb_milliy") == "UZMU":
             organization_name = "UZMU"
         elif request.POST.get("chb_boshqa") == "other":
             organization_name = request.POST.get("organization_name")
+        
 
-        phone_number = request.POST.get("phone_number", "").replace(' ', '').replace('-', '').strip()
         # Obyekt yaratish
         Applications.objects.create(
+            user=CustomUser.objects.get(id=request.user.id),
             first_name=first_name,
             last_name=last_name,
-            full_name=full_name,
+            mid_name=mid_name,
             directions=directions_obj,
             sciences=sciences_obj,
             type_edu=type_edu_obj,
@@ -378,10 +481,11 @@ def admin_applicationfilter(request):
             work_order=request.FILES.get("work_order"),
             reference_letter=request.FILES.get("reference_letter"),
             application=application_file,
-            user=request.user
         )
+
         messages.success(request, "Ariza muvaffaqiyatli yuborildi!")
-        return redirect(reverse('applications', kwargs={'user': request.user.username}))
+        return redirect(reverse('admin_applications'))
+        
 
     # Kontekst ma'lumotlar
     context = {
@@ -397,7 +501,7 @@ def admin_applicationfilter(request):
     }
 
     template_name = 'adminapplications.html' if request.user.is_staff else 'applications.html'
-    return render(request, template_name, context,)
+    return render(request, template_name, context)
 
 
 
@@ -414,81 +518,6 @@ def comissions_view(request):
 
     return render(request, 'comissions.html', context)
 
-
-#def applications(request):
-#    return render(request, 'applications.html')  # applications sahifasi shabloni
-
-# def ApplicationsView(request):
-#     applications = Applications.objects.filter(user=request.user)  # Faqat foydalanuvchining arizalari
-#     # Baza ma'lumotlarini olish
-#     type_edu = Edutype.objects.all()
-#     directions = Groups.objects.all()  # Bu yerda 'directions' ro'yxat bo'lishi kerak
-#     sciences = Sciences.objects.all()
-#
-#     # Formani yuborish uchun POST so'rovi
-#     if request.method == "POST":
-#         try:
-#             # Formaga yuborilgan ma'lumotlarni olish
-#             directions = get_object_or_404(Groups, id=request.POST.get("directions"))
-#             sciences = get_object_or_404(Sciences, id=request.POST.get("sciences"))
-#             type_edu = get_object_or_404(Edutype, id=request.POST.get("type_edu"))
-#
-#             # Fayl hajmini tekshirish
-#             application_file = request.FILES.get("application")
-#             if application_file and application_file.size > 5 * 1024 * 1024:
-#                 messages.error(request, "Ariza hajmi 5MB dan oshmasligi kerak!")
-#                 return render(request, "applications.html", context)
-#
-#             if request.POST.get("chb_milliy") == "UZMU":
-#                 organization_name = "UZMU"
-#             elif request.POST.get("chb_boshqa") == "other":
-#                 organization_name = request.POST.get(
-#                     "organization_name")  # Boshqa tashkilot nomini input orqali olingan
-#             else:
-#                 organization_name = None
-#
-#             # Tashkilot tanlanganini aniqlash
-#             if "chb_milliy" in request.POST:
-#                 phone_number = request.POST.get("phone_number", "")  # Milliy uchun raqam
-#                 # Belgilarni tozalash
-#                 cleaned_phone = phone_number.replace('-', '').strip()
-#                 return HttpResponse(f"Telefon raqamingiz: {cleaned_phone}")
-#
-#             elif "chb_boshqa" in request.POST:
-#                 phone_number = request.POST.get("number_boshqa", "")  # Boshqa tashkilot uchun raqam
-#             else:
-#                 phone_number = None  # Agar hech narsa tanlanmasa
-#
-#             # Ma'lumotlarni bazaga qo'shish
-#             Applications.objects.create(
-#                 first_name=request.POST.get("first_name"),
-#                 last_name=request.POST.get("last_name"),
-#                 father_name=request.POST.get("father_name"),
-#                 directions=directions,
-#                 sciences=sciences,
-#                 type_edu=type_edu,
-#                 organization=organization_name,  # To'g'irlangan qism,
-#                 number=phone_number,
-#                 oak_decision=request.FILES.get("oak_decision"),
-#                 work_order=request.FILES.get("work_order"),
-#                 reference_letter=request.FILES.get("reference_letter"),
-#                 application=application_file
-#             )
-#
-#             # Muvaffaqiyatli saqlanganini bildirish
-#             messages.success(request, "Ariza muvaffaqiyatli yuborildi!")
-#         except Exception as e:
-#             # Xatolik yuz berganda
-#             messages.error(request, f"Ariza yuborishda xatolik yuz berdi: {str(e)}")
-#
-#     context = {
-#         'applications': applications,
-#         'sciences': sciences,
-#         'type_edu': type_edu,
-#         'directions': directions,  # Bu yerda 'directions' ro'yxat sifatida olingan
-#     }
-#
-#     return render(request, 'applications.html', context)
 
 
 def export_excel(request):
@@ -515,7 +544,7 @@ def export_excel(request):
         for application in applications:
             # Har bir talabgor haqida ma'lumotlar
             sheet[f'A{row}'] = application.id
-            sheet[f'B{row}'] = f"{application.last_name} {application.first_name} {application.father_name}"
+            sheet[f'B{row}'] = f"{application.last_name} {application.first_name} {application.mid_name}"
             sheet[f'C{row}'] = str(application.directions)  # 'groups' o'rniga 'directions'
             sheet[f'D{row}'] = application.organization
             sheet[f'E{row}'] = str(application.sciences)  # `Sciences` obyektini stringga aylantirish
@@ -551,41 +580,6 @@ def update_status(request, pk):
     return JsonResponse({'success': False}, status=405)
 
 #word fayl
-def generate_certificate(application):
-    doc = Document()
-
-    # Ballga qarab xabarni tayyorlash
-    if application.score >= 56:
-        result_message = "imtihonni muvofaqqiyatli topshiridingiz."
-    elif application.score > 0:
-        result_message = "imtihonni muvofaqqiyatli topshira olmadingiz."
-    else:
-        result_message = "imtihonga qatnashmagansiz."
-
-    # Word faylga ma'lumot qo'shish
-    doc.add_heading(f"Hurmatli {application.first_name} {application.last_name} {application.father_name}", level=1)
-    doc.add_paragraph(f"Siz {application.sciences} fanidan {application.score} ball to'pladingiz.")
-    doc.add_paragraph(f"Natija: {result_message}")
-
-    # Faylni saqlash
-    file_name = f"{application.first_name}_{application.last_name}_natija.docx"
-    doc.save(file_name)
-    return file_name
-
-def download_certificate(request, application_id):
-    application = get_object_or_404(Application, id=application_id)
-    file_path = generate_certificate(application)
-    response = FileResponse(open(file_path, 'rb'), content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
-    response['Content-Disposition'] = f'attachment; filename="{file_path}"'
-    return response\
-
-def application_review(request, application_id):
-    application = get_object_or_404(Application, id=application_id)
-    if request.method == "POST":
-        application.score = request.POST.get('score')
-        application.save()
-        return redirect('download_certificate', application_id=application.id)
-    return render(request, 'adminapplications.html', {'application': application})
 
 def ArchiveView(request):
     status_counts = {}
@@ -604,3 +598,5 @@ def ArchiveView(request):
         'status_counts': status_counts,
     }
     return render(request, 'archive.html', context)
+
+

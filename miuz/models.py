@@ -1,8 +1,20 @@
 from django.db import models
 from django.core.validators import RegexValidator
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+
 # Create your models here
 # admin
+
+class CustomUser(AbstractUser):
+    username = models.CharField(max_length=150, unique=True)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    mid_name = models.CharField(max_length=100, blank=True, null=True, verbose_name="Otasining ismi")
+    pin = models.CharField(max_length=14, unique=True, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.username} {self.first_name} {self.last_name} {self.mid_name}"
 
 class Menu(models.Model):
     name = models.CharField(max_length=100, verbose_name='Menu nomi')
@@ -71,10 +83,10 @@ class Applications(models.Model):
         ('accepted', 'Qabul qilingan'),
         ('rejected', 'Rad etilgan'),
     ]
-    user = models.ForeignKey(User, on_delete=models.CASCADE) #talabgor
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  # talabgor
     first_name = models.CharField(max_length=100, verbose_name="Ism")  # Ism
     last_name = models.CharField(max_length=100, null=True, blank=True, verbose_name="Familiya")  # Familiya
-    father_name = models.CharField(max_length=100, verbose_name="Otasining_ismi")  # Otasining ismi
+    mid_name = models.CharField(max_length=100, verbose_name="Otasining_ismi")  # Otasining ismi
     directions = models.ForeignKey(Groups, on_delete=models.CASCADE, related_name="applications",
                                    verbose_name="Ixtisoslik")  # Ixtisoslik nomi
     sciences = models.ForeignKey(Sciences, on_delete=models.CASCADE, related_name="applications",
@@ -82,19 +94,11 @@ class Applications(models.Model):
     type_edu = models.ForeignKey(Edutype, on_delete=models.CASCADE, related_name="applications",
                                  verbose_name="Talim turi")  # Ta'lim turi
     organization = models.CharField(max_length=100, verbose_name="Tashkilot_nomi")  # Tashkilot nomi
-    phone_regex = RegexValidator(
-        regex=r'^\+?1?\d{9,15}$',
-        message="Telefon raqam to'g'ri formatda bo'lishi kerak: '+998901234567'."
-    )
-    number = models.CharField(
-        validators=[phone_regex],
-        max_length=17,
-        verbose_name="Telefon raqami"
-    )  # Telefon raqam
+    number = models.CharField(max_length=13, verbose_name="Telefon raqami")  # Telefon raqam
     oak_decision = models.FileField(upload_to='oak_decision/', blank=True, null=True,
                                     verbose_name="OAK byulleteni yoki tashkilot kengashi qarori", )  # OAK hujjati
     work_order = models.FileField(upload_to='work_order/', blank=True, null=True,
-                                  verbose_name="Ish_buyrugi")  # Ish buyrugâ€˜i
+                                  verbose_name="Ish_buyrugi")  # Ish buyrug‘i
     reference_letter = models.FileField(upload_to='reference_letter/', blank=True, null=True,
                                         verbose_name="Yollanma_xati")  # Holati
     application = models.FileField(upload_to='application/', verbose_name="Arizasi")  # Arizasi
@@ -102,13 +106,27 @@ class Applications(models.Model):
     reason = models.TextField(null=True, blank=True)  # Rad etish sababi
     date = models.DateTimeField(auto_now=True, verbose_name="Ariza yuborilgan vaqti")
     created_at = models.DateTimeField(auto_now_add=True)  # Yangi maydon qo'shildi
-    score = models.IntegerField(default=0)
+    score = models.IntegerField(default=0, verbose_name="ball")
     
-
     def __str__(self):
-        return f"{self.last_name} {self.first_name} ({self.score} ball)"
+        return f"{self.last_name} {self.first_name}"
 
     class Meta:
         ordering = ['-created_at']  # Oxirgi qo'shilganini birinchi qilib tartiblang
         verbose_name = 'Applications'
         verbose_name_plural = 'Applications'
+
+
+class ExamResult(models.Model):
+    application = models.ForeignKey(Applications, on_delete=models.CASCADE, related_name='Ariza')
+    score = models.IntegerField()
+    exam_date = models.DateField()
+    exam_subject = models.CharField(max_length=255)
+    passed = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.application} - {self.exam_subject} - {self.score}"
+
+
+   
+ 

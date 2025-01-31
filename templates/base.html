@@ -293,8 +293,8 @@ margin-bottom: 0px;
                         <div class="sb-nav-link-icon"> <i class="fa-solid fas fa-chalkboard"></i></div>
                         Bosh sahifa
                     </a>
-                    <a class="nav-link {% if request.resolver_match.url_name == 'adminapplications' %}active{% endif %}"
-                       href="{% url 'adminapplications' %}">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'admin_applications' %}active{% endif %}"
+   				href="{% url 'admin_applications' %}">
                         <div class="sb-nav-link-icon"><i class="fa-solid fas fa-list"></i></div>
                         Arizalar
                     </a>
@@ -430,32 +430,6 @@ setTimeout(() => {
 
 
     function toggleCollapse(section) {
-        // Collapse elementlarni olish
-        const milliyCheckbox = document.querySelector('input[name="chb_milliy"]');
-        const boshqaCheckbox = document.querySelector('input[name="chb_boshqa"]');
-        const milliyCollapse = document.getElementById('milliy_collapse');
-        const boshqaCollapse = document.getElementById('boshqa_collapse');
-
-        // Collapse bo'limlarni boshqarish va checkboxlarni nazorat qilish
-        if (section === 'milliy') {
-            if (milliyCheckbox.checked) {
-                milliyCollapse.style.display = 'block';
-                boshqaCollapse.style.display = 'none';
-                boshqaCheckbox.checked = false; // Ikkinchi checkboxni o'chirish
-            } else {
-                milliyCollapse.style.display = 'none';
-            }
-        } else if (section === 'boshqa') {
-            if (boshqaCheckbox.checked) {
-                boshqaCollapse.style.display = 'block';
-                milliyCollapse.style.display = 'none';
-                milliyCheckbox.checked = false; // Birinchi checkboxni o'chirish
-            } else {
-                boshqaCollapse.style.display = 'none';
-            }
-        }
-    }
-function toggleCollapse(section) {
         // Collapse elementlarni olish
         const milliyCheckbox = document.querySelector('input[name="chb_milliy"]');
         const boshqaCheckbox = document.querySelector('input[name="chb_boshqa"]');
@@ -744,7 +718,7 @@ renderCalendar(currentDate);
 
         if (directionId) {
             // AJAX so'rovi yuborish
-            fetch("{% url 'adminapplications' %}?direction_id=" + directionId, {
+            fetch("{% url 'admin_applications' %}?direction_id=" + directionId, {
                 method: 'GET',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
@@ -774,9 +748,7 @@ renderCalendar(currentDate);
         }
     }
 </script>
-<script>
-
-</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 </body>
