@@ -1,0 +1,22 @@
+[0;1;32m●[0m gunicorn.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/gunicorn.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Mon 2025-01-20 04:05:29 UTC; 6s ago
+TriggeredBy: [0;1;32m●[0m gunicorn.socket
+   Main PID: 31625 (gunicorn)
+      Tasks: 5 (limit: 19087)
+     Memory: 142.9M
+     CGroup: /system.slice/gunicorn.service
+             ├─31625 /var/www/html/miuz/venv/bin/python3 /var/www/html/miuz/venv/bin/gunicorn --workers 4 --threads 2 --bind unix:/var/www/html/miuz/miuz.sock config.wsgi:application
+             ├─31637 /var/www/html/miuz/venv/bin/python3 /var/www/html/miuz/venv/bin/gunicorn --workers 4 --threads 2 --bind unix:/var/www/html/miuz/miuz.sock config.wsgi:application
+             ├─31638 /var/www/html/miuz/venv/bin/python3 /var/www/html/miuz/venv/bin/gunicorn --workers 4 --threads 2 --bind unix:/var/www/html/miuz/miuz.sock config.wsgi:application
+             ├─31639 /var/www/html/miuz/venv/bin/python3 /var/www/html/miuz/venv/bin/gunicorn --workers 4 --threads 2 --bind unix:/var/www/html/miuz/miuz.sock config.wsgi:application
+             └─31640 /var/www/html/miuz/venv/bin/python3 /var/www/html/miuz/venv/bin/gunicorn --workers 4 --threads 2 --bind unix:/var/www/html/miuz/miuz.sock config.wsgi:application
+
+Jan 20 04:05:29 mi systemd[1]: Started gunicorn daemon.
+Jan 20 04:05:29 mi gunicorn[31625]: [2025-01-20 04:05:29 +0000] [31625] [INFO] Starting gunicorn 23.0.0
+Jan 20 04:05:29 mi gunicorn[31625]: [2025-01-20 04:05:29 +0000] [31625] [INFO] Listening at: unix:/run/gunicorn.sock (31625)
+Jan 20 04:05:29 mi gunicorn[31625]: [2025-01-20 04:05:29 +0000] [31625] [INFO] Using worker: gthread
+Jan 20 04:05:29 mi gunicorn[31637]: [2025-01-20 04:05:29 +0000] [31637] [INFO] Booting worker with pid: 31637
+Jan 20 04:05:29 mi gunicorn[31638]: [2025-01-20 04:05:29 +0000] [31638] [INFO] Booting worker with pid: 31638
+Jan 20 04:05:30 mi gunicorn[31639]: [2025-01-20 04:05:30 +0000] [31639] [INFO] Booting worker with pid: 31639
+Jan 20 04:05:30 mi gunicorn[31640]: [2025-01-20 04:05:30 +0000] [31640] [INFO] Booting worker with pid: 31640

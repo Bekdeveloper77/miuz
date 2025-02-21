@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
@@ -30,10 +31,36 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
+
+<html>
+<head>
+    <style>
+        /* Sertifikat dizayni */
+        .certificate {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .certificate-header {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .certificate-text {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .user-name {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .exam-details {
+            margin-top: 20px;
+            font-size: 16px;
+
         }
     </style>
 </head>
 <body>
+
 
 <h2>Imtihon Natijalari</h2>
 
@@ -65,6 +92,24 @@
     </tr>
     {% endfor %}
 </table>
+
+
+    <div class="certificate">
+        <div class="certificate-header">
+            Malakaviy Imtihon Sertifikati
+        </div>
+        <div class="user-name">
+            {{ user.first_name }} {{ user.last_name }}
+        </div>
+        <div class="certificate-text">
+            {{ certificate_text }}
+        </div>
+        <div class="exam-details">
+            <p>Imtihon sanasi: {{ interview_date }}</p>
+            <p>Imtihon fani: {{ subject }}</p>
+            <p>Ball: {{ score }}</p>
+        </div>
+    </div>
 
 </body>
 </html>

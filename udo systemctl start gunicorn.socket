@@ -1,0 +1,1119 @@
+-- Logs begin at Tue 2024-07-09 22:36:21 UTC, end at Mon 2025-01-20 04:03:54 UTC. --
+Jan 20 03:25:22 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:22 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:22 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:22 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:22 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:22 mi gunicorn[27973]: Bad Request: /vendor/laravel/.env
+Jan 20 03:25:22 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:22 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:22 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:22 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:22 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:22 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:22 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:22 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:22 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:22 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:22 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:22 mi gunicorn[27973]: Bad Request: /config.yaml.bak
+Jan 20 03:25:22 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:22 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:22 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:22 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:22 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:22 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:22 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:22 mi gunicorn[27971]: Bad Request: /eval-stdin.php
+Jan 20 03:25:22 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:22 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:22 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:22 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:22 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:22 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:22 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:22 mi gunicorn[27971]: Bad Request: /.env.bak
+Jan 20 03:25:22 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:22 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:22 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:22 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:22 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:22 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:22 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:22 mi gunicorn[27971]: Bad Request: /package.json
+Jan 20 03:25:22 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:22 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:22 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:22 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:22 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:22 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:22 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:22 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:22 mi gunicorn[27971]: Bad Request: /conf/.env
+Jan 20 03:25:23 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:23 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:23 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:23 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:23 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:23 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27971]: Bad Request: /azure-pipelines.yml
+Jan 20 03:25:23 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:23 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:23 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:23 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:23 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:23 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27971]: Bad Request: /application-dev.properties
+Jan 20 03:25:23 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:23 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:23 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:23 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:23 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:23 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27972]: Bad Request: /.AWS_/credentials
+Jan 20 03:25:23 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:23 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:23 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:23 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:23 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:23 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:23 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27971]: Bad Request: /karma.conf.json
+Jan 20 03:25:23 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:23 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:23 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:23 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:23 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:23 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27972]: Bad Request: /wp-config.php.save
+Jan 20 03:25:23 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:23 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:23 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:23 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:23 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:23 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:23 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:23 mi gunicorn[27972]: Bad Request: /app/config/.env
+Jan 20 03:25:24 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:24 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:24 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:24 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:24 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:24 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27972]: Bad Request: /backend/.env
+Jan 20 03:25:24 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:24 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:24 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:24 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:24 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:24 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27972]: Bad Request: /config/php.ini
+Jan 20 03:25:24 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:24 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:24 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:24 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:24 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:24 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27972]: Bad Request: /application/config/config.php
+Jan 20 03:25:24 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:24 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:24 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:24 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:24 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:24 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27972]: Bad Request: /.env.example
+Jan 20 03:25:24 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:24 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:24 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:24 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:24 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:24 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:24 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27972]: Bad Request: /.env.save
+Jan 20 03:25:24 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:24 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:24 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:24 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:24 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:24 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:24 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:24 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:24 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:24 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27973]: Bad Request: /vendor/.env
+Jan 20 03:25:24 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:24 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:24 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:24 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:24 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:24 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:24 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:24 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:24 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:24 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:24 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:25 mi gunicorn[27973]: Bad Request: /.env.staging
+Jan 20 03:25:25 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:25 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:25 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:25 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:25 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:25 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:25 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:25 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:25 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:25 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:25 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:25 mi gunicorn[27973]: Bad Request: /db_config.php
+Jan 20 03:25:25 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:25 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:25 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:25 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:25 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:25 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:25 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:25 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:25 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:25 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:25 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:25 mi gunicorn[27972]: Bad Request: /crm/.env
+Jan 20 03:25:25 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:25 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:25 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:25 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:25 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:25 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:25 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:25 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:25 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:25 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:25 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:25 mi gunicorn[27971]: Bad Request: /laravel/.env
+Jan 20 03:25:25 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:25 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:25 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:25 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:25 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:25 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:25 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:25 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:25 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:25 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:25 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:25 mi gunicorn[27972]: Bad Request: /ftpconfig
+Jan 20 03:25:26 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:26 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:26 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:26 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:26 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:26 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Bad Request: /index.php.bak
+Jan 20 03:25:26 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:26 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:26 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:26 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:26 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:26 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Bad Request: /app/config/parameters.yml
+Jan 20 03:25:26 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:26 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:26 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:26 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:26 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:26 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Bad Request: /system/.env
+Jan 20 03:25:26 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:26 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:26 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:26 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:26 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:26 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Bad Request: /.htaccess
+Jan 20 03:25:26 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:26 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:26 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:26 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:26 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:26 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Bad Request: /api/config/.env
+Jan 20 03:25:26 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:26 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:26 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:26 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:26 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:26 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:26 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:26 mi gunicorn[27973]: Bad Request: /.env.ini
+Jan 20 03:25:27 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:27 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:27 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:27 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:27 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:27 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:27 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:27 mi gunicorn[27973]: Bad Request: /app/.env
+Jan 20 03:25:27 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:27 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:27 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:27 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:27 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:27 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:27 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:27 mi gunicorn[27973]: Bad Request: /admin/.env
+Jan 20 03:25:27 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:27 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:27 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:27 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:27 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:27 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:27 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:27 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:27 mi gunicorn[27973]: Bad Request: /cgi-bin/.env
+Jan 20 03:25:27 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:27 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:27 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:27 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:27 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:27 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:27 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:27 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:27 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:27 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:27 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:27 mi gunicorn[27972]: Bad Request: /_profiler/phpinfo
+Jan 20 03:25:27 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:27 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:27 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:27 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:27 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:27 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:27 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:27 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:27 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:27 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:27 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:27 mi gunicorn[27971]: Bad Request: /environment.php
+Jan 20 03:25:28 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:28 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:28 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:28 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:28 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:28 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:28 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:28 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:28 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:28 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27971]: Bad Request: /server/.env
+Jan 20 03:25:28 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:28 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:28 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:28 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:28 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:28 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27972]: Bad Request: /old/.env
+Jan 20 03:25:28 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:28 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:28 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:28 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:28 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:28 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:28 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:28 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:28 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:28 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27973]: Bad Request: /.env.json
+Jan 20 03:25:28 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:28 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:28 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:28 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:28 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:28 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:28 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:28 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:28 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:28 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27971]: Bad Request: /api/env
+Jan 20 03:25:28 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:28 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:28 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:28 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:28 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:28 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27972]: Bad Request: /google-services.json
+Jan 20 03:25:28 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:28 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:28 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:28 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:28 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:28 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27972]: Bad Request: /connections.ini
+Jan 20 03:25:28 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:28 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:28 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:28 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:28 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:28 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:28 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:28 mi gunicorn[27972]: Bad Request: /error_log
+Jan 20 03:25:29 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:29 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:29 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:29 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:29 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:29 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27973]: Bad Request: /audio/.env
+Jan 20 03:25:29 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:29 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:29 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:29 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:29 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:29 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:29 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:29 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:29 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:29 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27971]: Bad Request: /resources/.env
+Jan 20 03:25:29 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:29 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:29 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:29 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:29 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:29 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27973]: Bad Request: /info.php
+Jan 20 03:25:29 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:29 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:29 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:29 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:29 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:29 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27973]: Bad Request: /wp-config.php
+Jan 20 03:25:29 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:29 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:29 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:29 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:29 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:29 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:29 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27973]: Bad Request: /dev.php
+Jan 20 03:25:29 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:29 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:29 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:29 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:29 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:29 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:29 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:29 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:29 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:29 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27972]: Bad Request: /wp-content/.env
+Jan 20 03:25:29 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:29 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:29 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:29 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:29 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:29 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:29 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:29 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:29 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:29 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:29 mi gunicorn[27972]: Bad Request: /phpinfo.php
+Jan 20 03:25:30 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:30 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:30 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:30 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:30 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:30 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27972]: Bad Request: /.json
+Jan 20 03:25:30 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:30 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:30 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:30 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:30 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:30 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27972]: Bad Request: /shared/.env
+Jan 20 03:25:30 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:30 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:30 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:30 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:30 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:30 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27972]: Bad Request: /local/.env
+Jan 20 03:25:30 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:30 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:30 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:30 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:30 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:30 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:30 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:30 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:30 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:30 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27971]: Bad Request: /.env.tmp
+Jan 20 03:25:30 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:30 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:30 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:30 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:30 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:30 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:30 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:30 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:30 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:30 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27973]: Bad Request: /.env.backup
+Jan 20 03:25:30 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:30 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:30 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:30 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:30 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:30 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:30 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:30 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:30 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:30 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27973]: Bad Request: /config/environment.php
+Jan 20 03:25:30 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:30 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:30 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:30 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:30 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:30 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:30 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27972]: Bad Request: /
+Jan 20 03:25:30 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:30 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:30 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:30 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:30 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:30 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:30 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:30 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:30 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:30 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:30 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27971]: Bad Request: /api/doc
+Jan 20 03:25:31 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:31 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:31 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:31 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:31 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:31 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:31 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:31 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:31 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:31 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27972]: Bad Request: /routes/.env
+Jan 20 03:25:31 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:31 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:31 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:31 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:31 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:31 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27973]: Bad Request: /php.ini
+Jan 20 03:25:31 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:31 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:31 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:31 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:31 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:31 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27973]: Bad Request: /web/app_dev.php
+Jan 20 03:25:31 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:31 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:31 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:31 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:31 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:31 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:31 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:31 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:31 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:31 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27971]: Bad Request: /.env
+Jan 20 03:25:31 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:31 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:31 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:31 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:31 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:31 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:31 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27973]: Bad Request: /test
+Jan 20 03:25:31 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:31 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:31 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:31 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:31 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:31 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:31 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:31 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:31 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:31 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27971]: Bad Request: /library/.env
+Jan 20 03:25:31 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:31 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:31 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:31 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:31 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:31 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:31 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:31 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:31 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:31 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:31 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Bad Request: /settings.php
+Jan 20 03:25:32 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:32 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:32 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:32 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:32 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:32 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Bad Request: /xmlrpc.php
+Jan 20 03:25:32 mi gunicorn[27973]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27973]: Traceback (most recent call last):
+Jan 20 03:25:32 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:32 mi gunicorn[27973]:     response = get_response(request)
+Jan 20 03:25:32 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:32 mi gunicorn[27973]:     response = self.process_request(request)
+Jan 20 03:25:32 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:32 mi gunicorn[27973]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:32 mi gunicorn[27973]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:32 mi gunicorn[27973]:     raise DisallowedHost(msg)
+Jan 20 03:25:32 mi gunicorn[27973]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27973]: Bad Request: /config/env.php
+Jan 20 03:25:32 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:32 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:32 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:32 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:32 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:32 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Bad Request: /db.php
+Jan 20 03:25:32 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:32 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:32 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:32 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:32 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:32 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Bad Request: /config.php.save
+Jan 20 03:25:32 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:32 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:32 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:32 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:32 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:32 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Bad Request: /.env.prod
+Jan 20 03:25:32 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:32 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:32 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:32 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:32 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:32 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Bad Request: /v1/.env
+Jan 20 03:25:32 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:32 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:32 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:32 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:32 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:32 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:32 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:32 mi gunicorn[27972]: Bad Request: /[DOMAIN]/.env
+Jan 20 03:25:33 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:33 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:33 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:33 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:33 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:33 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:33 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:33 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:33 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:33 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27972]: Bad Request: /application/config/database.ph
+Jan 20 03:25:33 mi gunicorn[27972]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27972]: Traceback (most recent call last):
+Jan 20 03:25:33 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:33 mi gunicorn[27972]:     response = get_response(request)
+Jan 20 03:25:33 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:33 mi gunicorn[27972]:     response = self.process_request(request)
+Jan 20 03:25:33 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:33 mi gunicorn[27972]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:33 mi gunicorn[27972]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:33 mi gunicorn[27972]:     raise DisallowedHost(msg)
+Jan 20 03:25:33 mi gunicorn[27972]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27972]: Bad Request: /graphql
+Jan 20 03:25:33 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:33 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:33 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:33 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:33 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:33 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27971]: Bad Request: /wp-admin/.env
+Jan 20 03:25:33 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:33 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:33 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:33 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:33 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:33 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27971]: Bad Request: /.env.testing
+Jan 20 03:25:33 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:33 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:33 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:33 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:33 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:33 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27971]: Bad Request: /info
+Jan 20 03:25:33 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:33 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:33 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:33 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:33 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:33 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:33 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:33 mi gunicorn[27971]: Bad Request: /azure-pipelines.json
+Jan 20 03:25:34 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:34 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:34 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:34 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:34 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:34 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:34 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:34 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:34 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:34 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:34 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:34 mi gunicorn[27971]: Bad Request: /var/cache/*/container.php
+Jan 20 03:25:34 mi gunicorn[27971]: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:34 mi gunicorn[27971]: Traceback (most recent call last):
+Jan 20 03:25:34 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+Jan 20 03:25:34 mi gunicorn[27971]:     response = get_response(request)
+Jan 20 03:25:34 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+Jan 20 03:25:34 mi gunicorn[27971]:     response = self.process_request(request)
+Jan 20 03:25:34 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/middleware/security.py", line 28, in process_request
+Jan 20 03:25:34 mi gunicorn[27971]:     host = self.redirect_host or request.get_host()
+Jan 20 03:25:34 mi gunicorn[27971]:   File "/var/www/html/miuz/venv/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+Jan 20 03:25:34 mi gunicorn[27971]:     raise DisallowedHost(msg)
+Jan 20 03:25:34 mi gunicorn[27971]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'malakaviy.nuu.uz,malakaviy.nuu.uz'. The domain name provided is not valid according to RFC 1034/1035.
+Jan 20 03:25:34 mi gunicorn[27971]: Bad Request: /.env.old
+Jan 20 03:39:01 mi CRON[30975]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 20 03:39:01 mi CRON[30976]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; then /usr/lib/php/sessionclean; fi)
+Jan 20 03:39:01 mi CRON[30975]: pam_unix(cron:session): session closed for user root
+Jan 20 03:39:07 mi systemd[1]: Starting Clean php session files...
+-- Subject: A start job for unit phpsessionclean.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit phpsessionclean.service has begun execution.
+-- 
+-- The job identifier is 35873.
+Jan 20 03:39:07 mi systemd[1]: phpsessionclean.service: Succeeded.
+-- Subject: Unit succeeded
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit phpsessionclean.service has successfully entered the 'dead' state.
+Jan 20 03:39:07 mi systemd[1]: Finished Clean php session files.
+-- Subject: A start job for unit phpsessionclean.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit phpsessionclean.service has finished successfully.
+-- 
+-- The job identifier is 35873.
+Jan 20 03:45:23 mi sshd[31038]: Accepted password for root from 174.14.0.8 port 50910 ssh2
+Jan 20 03:45:23 mi sshd[31038]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Jan 20 03:45:23 mi systemd-logind[878]: New session 337 of user root.
+-- Subject: A new session 337 has been created for user root
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- Documentation: https://www.freedesktop.org/wiki/Software/systemd/multiseat
+-- 
+-- A new session with the ID 337 has been created for the user root.
+-- 
+-- The leading process of the session is 31038.
+Jan 20 03:45:23 mi systemd[1]: Started Session 337 of user root.
+-- Subject: A start job for unit session-337.scope has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit session-337.scope has finished successfully.
+-- 
+-- The job identifier is 35956.
+Jan 20 03:46:15 mi sshd[31161]: Accepted password for root from 174.14.0.8 port 59638 ssh2
+Jan 20 03:46:15 mi sshd[31161]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Jan 20 03:46:15 mi systemd-logind[878]: New session 338 of user root.
+-- Subject: A new session 338 has been created for user root
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- Documentation: https://www.freedesktop.org/wiki/Software/systemd/multiseat
+-- 
+-- A new session with the ID 338 has been created for the user root.
+-- 
+-- The leading process of the session is 31161.
+Jan 20 03:46:15 mi systemd[1]: Started Session 338 of user root.
+-- Subject: A start job for unit session-338.scope has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit session-338.scope has finished successfully.
+-- 
+-- The job identifier is 36043.
+Jan 20 03:46:27 mi sshd[31245]: Accepted password for root from 174.14.0.8 port 59641 ssh2
+Jan 20 03:46:27 mi sshd[31245]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Jan 20 03:46:27 mi systemd-logind[878]: New session 339 of user root.
+-- Subject: A new session 339 has been created for user root
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- Documentation: https://www.freedesktop.org/wiki/Software/systemd/multiseat
+-- 
+-- A new session with the ID 339 has been created for the user root.
+-- 
+-- The leading process of the session is 31245.
+Jan 20 03:46:27 mi systemd[1]: Started Session 339 of user root.
+-- Subject: A start job for unit session-339.scope has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit session-339.scope has finished successfully.
+-- 
+-- The job identifier is 36130.
+Jan 20 03:47:11 mi systemd[1]: [0;1;31m[0;1;39m[0;1;31mgunicorn.socket: Socket service gunicorn.service already active, refusing.[0m
+Jan 20 03:47:11 mi systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to listen on gunicorn socket.[0m
+-- Subject: A start job for unit gunicorn.socket has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit gunicorn.socket has finished with a failure.
+-- 
+-- The job identifier is 36217 and the job result is failed.
+Jan 20 03:47:29 mi systemd[1]: Reloading.
+Jan 20 03:47:29 mi systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mConfiguration file /run/systemd/system/netplan-ovs-cleanup.service is marked world-inaccessible. This has no effect as configuration data is accessible via APIs without restrictions. Proceeding anyway.[0m
+Jan 20 03:47:52 mi systemd[1]: Stopping Gunicorn instance to serve miuz project...
+-- Subject: A stop job for unit miuz.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A stop job for unit miuz.service has begun execution.
+-- 
+-- The job identifier is 36301.
+Jan 20 03:47:52 mi gunicorn[27971]: [2025-01-20 08:47:52 +0500] [27971] [INFO] Worker exiting (pid: 27971)
+Jan 20 03:47:52 mi gunicorn[27972]: [2025-01-20 08:47:52 +0500] [27972] [INFO] Worker exiting (pid: 27972)
+Jan 20 03:47:52 mi gunicorn[27973]: [2025-01-20 08:47:52 +0500] [27973] [INFO] Worker exiting (pid: 27973)
+Jan 20 03:47:52 mi gunicorn[27957]: [2025-01-20 03:47:52 +0000] [27957] [INFO] Handling signal: term
+Jan 20 03:47:52 mi gunicorn[27957]: [2025-01-20 03:47:52 +0000] [27957] [ERROR] Worker (pid:27971) was sent SIGTERM!
+Jan 20 03:47:52 mi gunicorn[27957]: [2025-01-20 03:47:52 +0000] [27957] [ERROR] Worker (pid:27973) was sent SIGTERM!
+Jan 20 03:47:52 mi gunicorn[27957]: [2025-01-20 03:47:52 +0000] [27957] [ERROR] Worker (pid:27972) was sent SIGTERM!
+Jan 20 03:47:52 mi gunicorn[27957]: [2025-01-20 03:47:52 +0000] [27957] [INFO] Shutting down: Master
+Jan 20 03:47:52 mi systemd[1]: miuz.service: Succeeded.
+-- Subject: Unit succeeded
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit miuz.service has successfully entered the 'dead' state.
+Jan 20 03:47:52 mi systemd[1]: Stopped Gunicorn instance to serve miuz project.
+-- Subject: A stop job for unit miuz.service has finished
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A stop job for unit miuz.service has finished.
+-- 
+-- The job identifier is 36301 and the job result is done.
+Jan 20 03:47:52 mi systemd[1]: Started Gunicorn instance to serve miuz project.
+-- Subject: A start job for unit miuz.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit miuz.service has finished successfully.
+-- 
+-- The job identifier is 36301.
+Jan 20 03:47:52 mi gunicorn[31377]: [2025-01-20 03:47:52 +0000] [31377] [INFO] Starting gunicorn 23.0.0
+Jan 20 03:47:52 mi gunicorn[31377]: [2025-01-20 03:47:52 +0000] [31377] [INFO] Listening at: unix:/var/www/html/miuz/miuz.sock (31377)
+Jan 20 03:47:52 mi gunicorn[31377]: [2025-01-20 03:47:52 +0000] [31377] [INFO] Using worker: sync
+Jan 20 03:47:52 mi gunicorn[31399]: [2025-01-20 03:47:52 +0000] [31399] [INFO] Booting worker with pid: 31399
+Jan 20 03:47:52 mi gunicorn[31400]: [2025-01-20 03:47:52 +0000] [31400] [INFO] Booting worker with pid: 31400
+Jan 20 03:47:52 mi gunicorn[31401]: [2025-01-20 03:47:52 +0000] [31401] [INFO] Booting worker with pid: 31401
+Jan 20 03:52:01 mi sudo[31403]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/html/miuz ; USER=root ; COMMAND=/usr/bin/nano /etc/nginx/sites-available/miuz[0m
+Jan 20 03:52:01 mi sudo[31403]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Jan 20 03:54:22 mi sudo[31408]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/html/miuz ; USER=root ; COMMAND=/usr/bin/nano /etc/nginx/sites-available/default[0m
+Jan 20 03:54:22 mi sudo[31408]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Jan 20 03:58:40 mi sudo[31414]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/html/miuz ; USER=root ; COMMAND=/usr/bin/ln -s /etc/nginx/sites-available/miuz /etc/nginx/sites-enabled/[0m
+Jan 20 03:58:40 mi sudo[31414]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Jan 20 03:58:40 mi sudo[31414]: pam_unix(sudo:session): session closed for user root
+Jan 20 03:59:12 mi sudo[31416]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/html/miuz ; USER=root ; COMMAND=/usr/bin/rm /etc/nginx/sites-enabled/default[0m
+Jan 20 03:59:12 mi sudo[31416]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Jan 20 03:59:12 mi sudo[31416]: pam_unix(sudo:session): session closed for user root
+Jan 20 04:03:18 mi sudo[31422]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/html/miuz ; USER=root ; COMMAND=/usr/bin/systemctl daemon-reload[0m
+Jan 20 04:03:18 mi sudo[31422]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Jan 20 04:03:18 mi systemd[1]: Reloading.
+Jan 20 04:03:18 mi systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mConfiguration file /run/systemd/system/netplan-ovs-cleanup.service is marked world-inaccessible. This has no effect as configuration data is accessible via APIs without restrictions. Proceeding anyway.[0m
+Jan 20 04:03:18 mi sudo[31422]: pam_unix(sudo:session): session closed for user root
+Jan 20 04:03:18 mi sudo[31457]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/html/miuz ; USER=root ; COMMAND=/usr/bin/systemctl start gunicorn[0m
+Jan 20 04:03:18 mi sudo[31457]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Jan 20 04:03:18 mi systemd[1]: [0;1;31m[0;1;39m[0;1;31mgunicorn.socket: Socket service gunicorn.service already active, refusing.[0m
+Jan 20 04:03:18 mi systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to listen on gunicorn socket.[0m
+-- Subject: A start job for unit gunicorn.socket has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit gunicorn.socket has finished with a failure.
+-- 
+-- The job identifier is 36389 and the job result is failed.
+Jan 20 04:03:18 mi systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mDependency failed for gunicorn daemon.[0m
+-- Subject: A start job for unit gunicorn.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit gunicorn.service has finished with a failure.
+-- 
+-- The job identifier is 36385 and the job result is dependency.
+Jan 20 04:03:18 mi systemd[1]: [0;1;39m[0;1;31m[0;1;39mgunicorn.service: Job gunicorn.service/start failed with result 'dependency'.[0m
+Jan 20 04:03:18 mi sudo[31457]: pam_unix(sudo:session): session closed for user root
+Jan 20 04:03:18 mi sudo[31460]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/html/miuz ; USER=root ; COMMAND=/usr/bin/systemctl enable gunicorn[0m
+Jan 20 04:03:18 mi sudo[31460]: pam_unix(sudo:session): session opened for user root by root(uid=0)
+Jan 20 04:03:18 mi systemd[1]: Reloading.
+Jan 20 04:03:18 mi systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mConfiguration file /run/systemd/system/netplan-ovs-cleanup.service is marked world-inaccessible. This has no effect as configuration data is accessible via APIs without restrictions. Proceeding anyway.[0m
+Jan 20 04:03:19 mi sudo[31460]: pam_unix(sudo:session): session closed for user root
+Jan 20 04:03:19 mi systemd[1]: Starting Message of the Day...
+-- Subject: A start job for unit motd-news.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit motd-news.service has begun execution.
+-- 
+-- The job identifier is 36470.
+Jan 20 04:03:54 mi sudo[31534]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/0 ; PWD=/var/www/html/miuz ; USER=root ; COMMAND=/usr/bin/journalctl -xe[0m
+Jan 20 04:03:54 mi sudo[31534]: pam_unix(sudo:session): session opened for user root by root(uid=0)

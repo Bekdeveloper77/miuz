@@ -13,6 +13,7 @@ urlpatterns = [
     path('home/', views.HomeView, name='home'),
     # Foydalanuvchi uchun ariza ko'rish
     path('applications/', views.admin_applicationfilter_user, name='applications'), 
+    path('applications/<str:user>/', views.admin_applicationfilter_user, name='applications'), 
     # Admin uchun arizalarni filtrlash
     path('adminapplications/', views.admin_applicationfilter_admin, name='admin_applications'),
 

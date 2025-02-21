@@ -231,6 +231,7 @@ margin-bottom: 0px;
 }
 
     </style>
+
 </head>
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -320,6 +321,7 @@ margin-bottom: 0px;
                         Guruhlar
                     </a>
 
+
                     <a class="nav-link {% if request.resolver_match.url_name == 'archive' %}active{% endif %}" href="{% url 'archive' %}">
                         <div class="sb-nav-link-icon"><i class="fa-solid fas fa-archive"></i></div>
                         Arxiv
@@ -327,6 +329,12 @@ margin-bottom: 0px;
                     <a class="nav-link" href="{% url 'curriculum_view' %}">
                         <div class="sb-nav-link-icon"><i class="fa-solid fas fa-list"></i></div>
                         Dasturlar
+                    </a>
+
+                    <a class="nav-link {% if request.resolver_match.url_name == 'archive' %}active{% endif %}"
+                       href="{% url 'archive' %}">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fas fa-archive"></i></div>
+                        Arxiv
                     </a>
                 </div>
             </div>
@@ -441,6 +449,7 @@ setTimeout(() => {
         const modal = new bootstrap.Modal(document.getElementById('crud_modal'));
         modal.show();
     });
+
     
     document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('openModalBtnd').addEventListener('click', function () {

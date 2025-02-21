@@ -14,7 +14,6 @@ class CustomUser(AbstractUser):
     pin = models.CharField(max_length=14, unique=True, null=True, blank=True)
     birth_date = models.CharField(max_length=14, unique=True, null=True, blank=True)
 
-
     def __str__(self):
         return f"{self.username} {self.first_name} {self.last_name} {self.mid_name}"
 
@@ -122,12 +121,14 @@ class Applications(models.Model):
 class ExamResult(models.Model):
     application = models.ForeignKey(Applications, on_delete=models.CASCADE, related_name='Ariza')
     score = models.IntegerField(null=True, blank=True)
+    score = models.IntegerField()
     exam_date = models.DateField()
     exam_subject = models.CharField(max_length=255)
     passed = models.CharField(max_length=255)
 
     def __str__(self):
         return f"{self.application} - {self.exam_subject} - {self.score}"
+
     class Meta:
         verbose_name = 'ExamResult'
         verbose_name_plural = 'ExamResult'

@@ -21,6 +21,12 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import ApplicationForm, ScienceForm, GroupForm
 from django.contrib import messages
 from .models import Applications, Edutype, Sciences, Groups, Comissions, CustomUser, ExamResult,Curriculum
+from django.urls import reverse
+import io
+from django.contrib.auth import authenticate, login, logout
+from .forms import ApplicationForm, ScienceForm, GroupForm
+from django.contrib import messages
+from .models import Applications, Edutype, Sciences, Groups, Comissions, CustomUser, ExamResult   
 from openpyxl import Workbook
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -33,9 +39,10 @@ from django.contrib.auth.views import LoginView
 import uuid
 import requests
 from urllib.parse import urlencode
-
 from django.utils import timezone
 from django.template.loader import render_to_string
+from django.views.decorators.csrf import csrf_exempt
+from django.utils import timezone
 import json
 import logging
 import random
@@ -56,6 +63,7 @@ def LoginView(request):
         if user is not None:
             login(request, user)
             return redirect(reverse_lazy('home' if user.is_superuser else 'applications'))
+            #return redirect('home' if user.is_superuser else 'applications')
         else:
             return HttpResponse("Invalid login credentials", status=400)
 
@@ -88,8 +96,12 @@ def logout(request):
 
 
 
+
 def generate_new_birth_date(length=6):
     """Yangi birth_date yaratish uchun funksiya."""
+
+def generate_new_pin(length=6):
+    """Yangi pin yaratish uchun funksiya."""
     return ''.join(random.choices(string.digits, k=length))
 
 
@@ -150,11 +162,31 @@ def callback(request):
 
         user, created = CustomUser.objects.update_or_create(
             username=birth_date,  # Pin-ni username sifatida ishlatamiz
+
+        # OneID'dan username yo'q, lekin user_id va pin mavjud
+        user_id = user_info.get('user_id', '')
+        pin = user_info.get('pin', '')
+
+        # Pin orqali username yaratish
+        username = pin  # 'pin' ni username sifatida ishlatish
+
+        # Agar foydalanuvchi tizimga kirayotgan bo'lsa, avvalgi pinni o'chirib, yangisini saqlash
+        if pin:
+            # Foydalanuvchi topilib, pinni yangilash
+            user = CustomUser.objects.filter(pin=pin).first()
+            if user:
+                user.pin = generate_new_pin()  # Yangi pin yaratish yoki saqlash
+                user.save()
+
+        user, created = CustomUser.objects.update_or_create(
+            username=username,  # Pin-ni username sifatida ishlatamiz
             defaults={
                 'first_name': user_info.get('first_name', ''),
                 'last_name': user_info.get('sur_name', ''),
                 'mid_name': user_info.get('mid_name', ''),
                 'birth_date': birth_date,
+                'pin': pin,
+
             }
         )
 
@@ -169,11 +201,12 @@ def callback(request):
         login(request, user)  # Foydalanuvchini tizimga kiriting
 
         # 'next' parametri mavjud bo'lsa, unga o'tish, bo'lmasa 'applications'ga yo'naltirish
+
         next_url = request.GET.get('next', reverse('applications'))
+        next_url = request.GET.get('next', reverse('applications', kwargs={'user': request.user.pin}))
         return redirect(next_url)
     else:
         return HttpResponse(f"Error fetching user info: {user_info_response.text}", status=400)
-
 
 
 @login_required
@@ -313,6 +346,7 @@ def export_excelgroup(request):
     return response
 
 
+
 def admin_applicationfilter_user(request):
     # URL parametridan foydalanuvchi (birth_date) ma'lumotlarini olish
     # Agar foydalanuvchi avtorizatsiya qilgan bo'lsa, u holda `request.user` dan foydalaning
@@ -323,6 +357,15 @@ def admin_applicationfilter_user(request):
     applications = Applications.objects.filter(user=request.user).order_by('-created_at')
     results = ExamResult.objects.filter(application__in=applications)
     
+
+def admin_applicationfilter_user(request, user):
+    # URL parametridan foydalanuvchi (pin) ma'lumotlarini olish
+    user_instance = get_object_or_404(CustomUser, pin=user)
+    
+    # Foydalanuvchi uchun arizalar
+    applications = Applications.objects.filter(user=user_instance).order_by('-created_at')
+
+   
     # Tanlangan direction (ixtisoslik) bo'yicha fanlarni filtrlash
     direction_id = request.GET.get('direction_id')
     if direction_id:
@@ -337,8 +380,6 @@ def admin_applicationfilter_user(request):
 
     type_edu = Edutype.objects.all()
     directions = Groups.objects.all()
-
-    
 
     # POST so'rovini tekshirish
     if request.method == 'POST':
@@ -392,7 +433,9 @@ def admin_applicationfilter_user(request):
         )
 
         messages.success(request, "Ariza muvaffaqiyatli yuborildi!")
-        return redirect(reverse('applications'))
+        #return redirect(reverse('applications'))
+        return redirect(reverse('applications', kwargs={'user': request.user.pin}))
+
    
     context = {
         'applications': applications,
@@ -415,7 +458,6 @@ def admin_applicationfilter_admin(request):
 
     selected_science = request.GET.get('science')  # Fan nomi
     selected_status = request.GET.get('status')  # Ariza holati
-  
 
     if not request.user.is_authenticated:
         return redirect('login')  # Foydalanuvchini login sahifasiga yo'naltirish
@@ -446,7 +488,7 @@ def admin_applicationfilter_admin(request):
         applications = applications.filter(sciences__id=selected_science)
     if selected_status:
         applications = applications.filter(status=selected_status)
-    
+   
     results = ExamResult.objects.filter(application__in=applications)
 
     # POST so'rovini tekshirish
@@ -666,8 +708,6 @@ def generate_certificate(request, result_id):
         return HttpResponse("Imtihon natijasi topilmadi.", status=404)
     except Exception as e:
         return HttpResponse(f"Xatolik yuz berdi: {e}", status=500)
-
-
 
 
 
