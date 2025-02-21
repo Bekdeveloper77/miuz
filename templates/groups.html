@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">PhD Exam</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">MALAKAVIY IMTIHON</li>
+        </ol>
+        <div class="row">
+
+            {% for status, count in status_counts.items %}
+            <div class="col-xl-3 col-md-6">
+                {% if status == "pending" %}
+                <div class="card bg-primary text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fas fa-hourglass-start" style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+                {% elif status == "accepted" %}
+                <div class="card bg-success text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-check-circle" aria-hidden="true"
+                            style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+                {% elif status == "rejected" %}
+                <div class="card bg-danger text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-times-circle" aria-hidden="true"
+                            style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-users" aria-hidden="true"
+                            style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">Foydalanuvchilar soni
+                        <div><h1>25</h1></div>
+                    </div>
+
+                    <!--                                    <div class="card-footer d-flex align-items-center justify-content-between">-->
+                    <!--                                        <a class="small text-white stretched-link" href="#">View Details</a>-->
+                    <!--                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
+                    <!--                                    </div>-->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header p-3">
+                <div style="display: flex; align-items: center">
+                    <i class="fas fa-table me-1"></i>
+                    <h4><b>Guruhlar ro‘yxati</b></h4>
+                </div>
+                <div style="display: flex;">
+
+                    <a href="{% url 'export_excelgroup' %}" class="btn btn-success" style="margin-right: 6px">
+                         <i class="fa-solid fas fa-file-excel"></i> <b>Excel</b>
+                    </a>
+
+                    <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal3">
+                         <i class="fa-solid fas fa-plus"></i>
+                        <a><b>Yangi qo‘shish</b></a>
+                    </button>
+                    <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true"
+                         role="dialog">
+
+                        <div class="modal-dialog modal-lg" role="document">
+
+                            <!-- FORM-->
+                            <form method="POST" action="" enctype="multipart/form-data">
+                                <input type="hidden" name="item_id" value="2761">
+                                <div class="modal-content">
+
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="add_item">Yo'nalish ma`lumotlarini kiritish</h5>
+                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+
+
+                                    <div class="modal-body" style="height:auto;">
+
+                                        <form action="{% url 'groups' %}" method="post"
+                                              enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <label class="form-label" for="id_directions">Yo'nalish nomi:</label>
+                                            <input class="form-control" name="directions" id="id_directions"
+                                                   placeholder="Yo'nalish nomini kiriting"
+                                                   value="{{ form.directions.value|default:'' }}">
+
+                                             <label class="form-label" for="id_comission">Komissiya a'zolari</label>
+                                            <select class="form-select" name="comission" id="id_comission">
+                                                <option value="">Barchasi</option>
+                                                {% for comission in all_comission %}
+                                                <option value="{{ comission.id }}" {% if comission.id == selected_comission %}selected{% endif %}>
+                                                {{ comission.chairman }}
+                                                </option>
+                                                {% endfor %}
+                                            </select>
+<!--                                            <label class="form-label" for="id_sciences">Fan nomi</label>-->
+<!--                                            <select class="form-select" name="sciences" id="id_sciences">-->
+<!--                                                    <option value="">Barchasi</option>-->
+<!--                                                    {% for science in all_sciences %}-->
+<!--                                                    <option value="{{ science.id }}" {% if science.id == selected_sciences %}selected{% endif %}>-->
+<!--                                                        {{ science.name }}-->
+<!--                                                    </option>-->
+<!--                                                    {% endfor %}-->
+<!--                                                </select>-->
+                                            </br>
+                                            <button type="submit" class="btn btn-primary">
+                                                Yuborish
+                                            </button>
+
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </form>
+                            <!-- FORM END -->
+
+                        </div>
+
+                    </div>
+
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal4"
+                            class="btn btn-dark"
+                            style="margin-left: 6px; padding-left:14px; padding-right:14px">
+                         <i class="fa-solid fas fa-filter"></i>
+                        <a><b>Filter</b></a>
+                    </button>
+                    <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="modal4Label" aria-hidden="true"
+                         role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="">Filter</h5>
+                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+
+                                <form method="GET" action="{% url 'groups' %}">
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="sciences" class="form-label">Fan nomi</label>
+                                            <div class="input-group" style="width: 100%;">
+                                                <select class="form-select" name="sciences" id="sciences">
+                                                    <option value="">Barchasi</option>
+                                                    {% for science in all_sciences %}
+                                                    <option value="{{ science.id }}" {% if science.id == selected_sciences %}selected{% endif %}>
+                                                        {{ science.name }}
+                                                    </option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success">Filtrlash</button>
+                                    </div>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body mt-2">
+                <table id="example" class="display" style="padding-top: 20px">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>SANA</th>
+                        <th>YO‘NALISH</th>
+                        <th>BATAFSIL</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for group in groups %}
+                    <tr>
+                        <td>{{group.id}}</td>
+                        <td>{{group.datetime|date:"d-m-Y"}}</td>
+                        <td>{{group.directions}}</td>
+                        <td>
+
+                            <button class="btn btn-success"><i class="fa-regular fa-eye"></i> Batafsil</button>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+
+
+                    <!-- Qo'shimcha ma'lumotlar -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

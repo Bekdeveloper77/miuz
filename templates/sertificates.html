@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imtihon Natijalari</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-top: 10px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Imtihon Natijalari</h2>
+
+<table>
+    <tr>
+        <th>Ism</th>
+        <th>Familiya</th>
+        <th>Fan</th>
+        <th>Ball</th>
+        <th>Natija</th>
+        <th>Sertifikat</th>
+    </tr>
+    {% for result in results %}
+    <tr>
+        <td>{{ result.application.first_name }}</td>
+        <td>{{ result.application.last_name }}</td>
+        <td>{{ result.exam_subject }}</td>
+        <td>{{ result.score }}</td>
+        <td>
+            {% if result.score >= 56 %}
+                <span style="color: green;">Siz {{ result.score }} ball to'pladingiz. Imtihonni muvaffaqiyatli topshirdingiz!</span>
+            {% elif result.score == 0 %}
+                <span style="color: red;">Siz {{ result.score }} ball to'pladingiz. Imtihonga qatnashmadingiz va muvaffaqiyatli topshira olmadingiz, qayta topshiring.</span>
+            {% else %}
+                <span style="color: red;">Siz {{ result.score }} ball to'pladingiz. Imtihonni muvaffaqiyatli topshira olmadingiz!</span>
+            {% endif %}
+        </td>
+        
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

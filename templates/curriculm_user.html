@@ -1,0 +1,77 @@
+{% extends 'applications_user.html' %}
+
+{% block content %}
+
+<main>
+
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">PhD Exam</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">MALAKAVIY IMTIHON</li>
+                </ol>
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-dismissible fade show {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}"
+                     role="alert">
+                    <p style="color:red">{{ message }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                <div class="row">
+                    
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header p-3">
+                        <div style="display: flex; align-items: center">
+                            <i class="fas fa-table me-1"></i>
+                            <h4><b>Dasturlar</b></h4>
+                        </div>
+                        
+
+                    </div>
+                    <div class="card-body mt-2" style="overflow-x: auto; max-width:100%;">
+                        <table id="myTable" class="display table table-striped" style="width:100%; padding-top: 20px">
+            		<thead>
+                		<tr>
+                    		<th>#</th>
+                    		<th>Nomi</th>
+                    		<th>Tavsif</th>
+                		</tr>
+            		     </thead>
+
+                            <tbody>
+                            {% if curriculum_user %}
+
+                	{% for curriculum in curriculum_user %}
+                    	<tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ curriculum.directions_name }}</td>
+                        <td>
+    			 {% if curriculum.direct_file %}
+        		<a href="{{ curriculum.direct_file.url }}" download>PDF-ni yuklab olish</a>
+    			{% else %}
+        		Fayl mavjud emas
+    			{% endif %}				
+			</td>
+                        </tr>
+                	{% endfor %}
+            		{% else %}
+        		<p>Hozircha hech qanday dastur yo‘q.</p>
+    			{% endif %}
+
+        	</tbody>
+    		</table>
+
+                    </div>
+                    
+                </div>
+
+            </div>
+        </main>
+    
+
+
+{% endblock %}

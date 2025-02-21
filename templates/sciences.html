@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">PhD Exam</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">MALAKAVIY IMTIHON</li>
+        </ol>
+        <div class="row">
+
+            {% for status, count in status_counts.items %}
+            <div class="col-xl-3 col-md-6">
+                {% if status == "pending" %}
+                <div class="card bg-primary text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fas fa-hourglass-start" style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+                {% elif status == "accepted" %}
+                <div class="card bg-success text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-check-circle" aria-hidden="true"
+                            style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+                {% elif status == "rejected" %}
+                <div class="card bg-danger text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-times-circle" aria-hidden="true"
+                            style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-users" aria-hidden="true"
+                            style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">Foydalanuvchilar soni
+                        <div><h1>25</h1></div>
+                    </div>
+
+                    <!--                                    <div class="card-footer d-flex align-items-center justify-content-between">-->
+                    <!--                                        <a class="small text-white stretched-link" href="#">View Details</a>-->
+                    <!--                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
+                    <!--                                    </div>-->
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="card mb-4">
+            <div class="card-header p-3">
+                <div style="display: flex; align-items: center">
+                    <i class="fas fa-table me-1"></i>
+                    <h4><b>Fanlar ro‘yxati</b></h4>
+                </div>
+                <div style="display: flex;">
+                    <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal1">
+                        <i class="fa-solid fas fa-plus"></i>
+                        <a><b>Yangi qo‘shish</b></a>
+                    </button>
+                    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true"
+                         role="dialog">
+
+                        <div class="modal-dialog modal-lg" role="document">
+
+                            <!-- FORM-->
+                            <form method="POST" action="" enctype="multipart/form-data">
+                                <input type="hidden" name="item_id" value="2761">
+                                <div class="modal-content">
+
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="add_item">Fan ma`lumotlarini kiritish</h5>
+                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+
+
+                                    <div class="modal-body" style="height:auto;">
+                                        <form action="{% url 'sciences' %}" method="post" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="mb-3">
+                                                <label for="directions" class="form-label">YO'NALISH</label>
+                                                <div class="input-group" style="width: 100%;">
+                                                    <select class="form-select" name="directions" id="directions">
+                                                        <option value="">Barchasi</option>
+                                                        {% for direction in all_directions %}
+                                                        <option value="{{ direction.id }}" {% if direction.id == selected_directions %}selected{% endif %}>
+                                                            {{ direction.directions }}
+                                                        </option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <label class="form-label" for="id_name">Fan nomi:</label>
+                                            <input class="form-control" name="name" id="id_name"
+                                                   placeholder="Fan nomini kiriting" value="{{ form.name.value|default:'' }}">
+
+                                            </br>
+                                            <button type="submit" class="btn btn-primary">Yuborish</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </form>
+                            <!-- FORM END -->
+
+                        </div>
+
+                    </div>
+
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal2"
+                            class="btn btn-dark"
+                            style="margin-left: 6px; padding-left:14px; padding-right:14px">
+                        <i class="fa-solid fas fa-filter"></i>
+                        <a><b>Filter</b></a>
+                    </button>
+                    <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true"
+                         role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="">Filter</h5>
+                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+
+                                <form method="GET" action="{% url 'sciences' %}">
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Fan nomi</label>
+                                            <div class="input-group" style="width: 100%;">
+                                                <select class="form-select" name="name" id="name">
+                                                    <option value="">Barchasi</option>
+                                                    {% for name in all_names %}
+                                                    <option value="{{ name }}" {% if name == selected_name %}selected{% endif %}>
+                                                        {{ name }}
+                                                    </option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="directions" class="form-label">YO'NALISH</label>
+                                            <div class="input-group" style="width: 100%;">
+                                                <select class="form-select" name="directions" id="directions">
+                                                    <option value="">Barchasi</option>
+                                                    {% for direction in all_directions %}
+                                                    <option value="{{ direction }}" {% if direction == selected_directions %}selected{% endif %}>
+                                                        {{ direction }}
+                                                    </option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success">Filtrlash</button>
+                                    </div>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body mt-2">
+                <table id="example" class="display" style="padding-top: 20px">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>FAN</th>
+                        <th>YO‘NALISH</th>
+                        <th>NIMADUR</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for science in sciences %}
+                    <tr>
+                        <td>{{science.id}}</td>
+                        <td>{{science.name}}</td>
+                        <td>{{science.directions}}</td>
+                        <td>
+                            <button class="btn btn-success"><i class="fa-regular fa-pen-to-square"></i> Nimadur
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    <!-- Qo'shimcha ma'lumotlar -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

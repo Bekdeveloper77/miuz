@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">PhD Exam</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">MALAKAVIY IMTIHON</li>
+        </ol>
+     <div class="row">
+
+            {% for status, count in status_counts.items %}
+            <div class="col-xl-3 col-md-6">
+                {% if status == "pending" %}
+                <div class="card bg-primary text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fas fa-hourglass-start" style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+                {% elif status == "accepted" %}
+                <div class="card bg-success text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-check-circle" aria-hidden="true"
+                            style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+                {% elif status == "rejected" %}
+                <div class="card bg-danger text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-times-circle" aria-hidden="true"
+                            style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-users" aria-hidden="true"
+                            style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div class="card-body">Foydalanuvchilar soni
+                        <div><h1>25</h1></div>
+                    </div>
+
+                    <!--                                    <div class="card-footer d-flex align-items-center justify-content-between">-->
+                    <!--                                        <a class="small text-white stretched-link" href="#">View Details</a>-->
+                    <!--                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
+                    <!--                                    </div>-->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header p-3">
+                <div style="display: flex; align-items: center">
+                    <i class="fas fa-table me-1"></i>
+                    <h4><b>Arxivlar ro‘yxati</b></h4>
+                </div>
+                <div style="display: flex;">
+                    <button class="btn btn-success">
+                         <i class="fa-solid fas fa-file-excel"></i>
+                        <a><b>Excel</b></a>
+                    </button>
+
+                    <button class="btn btn-dark" style="margin-left: 6px; padding-left:14px; padding-right:14px">
+                         <i class="fa-solid fas fa-filter"></i>
+                        <a><b>Filter</b></a>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body mt-2">
+                <table id="example" class="display" style="padding-top: 20px">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>FIO</th>
+                        <th>YO‘NALISH</th>
+                        <th>TASHKILOT</th>
+                        <th>FAN NOMI</th>
+                        <th>STATUS</th>
+                        <th>AMAL</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Teshayev Bolta Ketmonovich</td>
+                        <td>12.00.02 - Konstitutsiyaviy huquq</td>
+                        <td>O'zMU</td>
+                        <td>Chet tili (ingliz tili)</td>
+                        <td>arxiv</td>
+                        <td>
+                            <button class="btn btn-success"><i class="fa-regular fas fa-eye"></i>  Ko‘rish</button>
+                        </td>
+                    </tr>
+
+                    <!-- Qo'shimcha ma'lumotlar -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

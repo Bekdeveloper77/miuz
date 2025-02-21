@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertifikatni tasdiqlash</title>
+</head>
+<body>
+    <h1>Sertifikatni tasdiqlash</h1>
+
+    <h2>{{ full_name }}</h2>
+    <p><strong>Baholash:</strong> {{ score }} ball</p>
+    <p><strong>Imtihon mavzusi:</strong> {{ exam_subject }}</p>
+    <p><strong>Imtihon sanasi:</strong> {{ exam_date }}</p>
+
+    <h3>Komissiya a'zolari:</h3>
+    <p><strong>Komissiya raisi:</strong> {{ chairman }}</p>
+    <p><strong>Rais o'rinbosari:</strong> {{ deputy }}</p>
+    <p><strong>Komissiya kotibi:</strong> {{ secretary }}</p>
+    <p><strong>Komissiya a'zolari:</strong> {{ members_text }}</p>
+
+    <h3>QR Kod:</h3>
+    <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={{ qr_code_url }}" alt="QR kod">
+	<h1>Sertifikatni Tasdiqlash</h1>
+    <iframe src="{{ certificate_pdf_url }}" width="100%" height="600px"></iframe>
+
+    <p>Sertifikat haqiqiyligini tasdiqlash uchun QR kodni skanerlang.</p>
+</body>
+</html>
