@@ -220,21 +220,6 @@ margin-bottom: 0px;
     background-color: #cce5ff;
 }
 
- .alert-success {
-    color: green;
-    background-color: #d4edda;
-}
-
-.alert-danger {
-    color: red;
-    background-color: #f8d7da;
-}
-
-.alert-info {
-    color: blue;
-    background-color: #cce5ff;
-}
-
 	.alert-container .alert-success {
     background-color: #28a745; /* Yashil rang */
     color: white;
@@ -244,6 +229,7 @@ margin-bottom: 0px;
     background-color: #dc3545; /* Qizil rang */
     color: white;
 }
+
     </style>
 </head>
 <body class="sb-nav-fixed">
@@ -263,12 +249,12 @@ margin-bottom: 0px;
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li class="nav-item dropdown">
-            <a class="nav-link" href="{% url 'login' %}" style="color: #24695c"><i class="fas fa-user fa-fw"></i> 
-		<b> 
+            <a class="nav-link" href="{% url 'login' %}" style="color: #24695c"><i class="fas fa-user fa-fw"></i>
+		<b>
 		Logout
 		</b>
                 </a>
-		
+
               </li>
     </ul>
 </nav>
@@ -286,21 +272,20 @@ margin-bottom: 0px;
                 <div class="profile_info">
 		 <h7 style="font-family:math">{{ request.user.last_name }} {{ request.user.first_name }}  {{ request.user.mid_name }}!</h7>
                     {% if user.is_authenticated %}
-                    <!--<h5>({{ request.user.username }}!)</h5>--!}
-			
-                  <!--<p style="color: white">Sizning email manzilingiz: {{ user.username }}</p>-->
+                    
                     {% else %}
                     <p>Siz tizimga kirmagansiz. <a href="{% url 'login' %}" style="color: white; font-weight: 500">|
                         LOGIN |</a> sahifasiga o'ting.</p>
                     {% endif %}
-                    
+
                 </div>
             </div>
             <!-- /menu profile quick info -->
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">MENU</div>
-                    	<a class="nav-link" href="{% url 'applications' %}">
+                    	<a class="nav-link" href="{% url 'applications' user.username %}">
+
                         <div class="sb-nav-link-icon"><i class="fa-solid fas fa-list"></i></div>
                         Arizalar
                         </a>
@@ -314,20 +299,15 @@ margin-bottom: 0px;
         </nav>
     </div>
     <div id="layoutSidenav_content">
-	
+
 	{% block content %}
 
 	{% endblock %}
-        
+
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Malakaviy m &copy; Your Website 2023</div>
-                    <div>
-                        <a href="#">Privacy Policy</a>
-                        &middot;
-                        <a href="#">Terms &amp; Conditions</a>
-                    </div>
+                    <div class="text-muted">Malakaviy imtihon &copy; mi.nuu.uz 2025</div>
                 </div>
             </div>
         </footer>
@@ -401,7 +381,7 @@ margin-bottom: 0px;
 
 </script>
 <script>
-    let timeout = 20 * 60 * 1000; // 20 daqiqa
+    let timeout = 10 * 60 * 1000; // 10 daqiqa
 setTimeout(() => {
     alert("Sizning seansingiz tugadi. Iltimos, qayta tizimga kiring.");
     window.location.href = "/login/"; // Login sahifasiga yo'naltirish
@@ -423,6 +403,14 @@ setTimeout(() => {
         const modal = new bootstrap.Modal(document.getElementById('crud_modal'));
         modal.show();
     });
+
+    
+    document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('openModalBtnd').addEventListener('click', function () {
+        var myModal = new bootstrap.Modal(document.getElementById('directionModal'));
+        myModal.show();
+    });
+});
 
 
     function toggleCollapse(section) {
@@ -499,48 +487,17 @@ setTimeout(() => {
 </script>
 
 <script>
-    function toggleCheckboxes(current, otherId) {
-        const otherCheckbox = document.getElementById(otherId);
-        if (current.checked) {
-            otherCheckbox.checked = false; // Boshqa checkboxni o'chirish
-            const reasonContent = document.getElementById('rad_content_' + current.id.split('_')[2]);
-            reasonContent.style.display = current.value === 'rejected' ? 'block' : 'none';
-        }
+    
+function toggleCheckboxes(current, otherId) {
+    const otherCheckbox = document.getElementById(otherId);
+    if (current.checked) {
+        otherCheckbox.checked = false; // Boshqa checkboxni o'chirish
+        const reasonContent = document.getElementById('rad_content_' + current.id.split('_')[2]);
+        reasonContent.style.display = current.value === 'rejected' ? 'block' : 'none';
     }
+}
 
-    function updateStatus(applicationId) {
-        const form = document.getElementById('statusForm_' + applicationId);
-        const formData = new FormData(form);
-        const csrfToken = formData.get('csrfmiddlewaretoken');
-        const status = formData.get('status');
-        const reason = formData.get('reason');
-
-        fetch(`/update_status/${applicationId}/`, {
-            method: 'POST',
-            headers: {
-                'X-CSRFToken': csrfToken
-            },
-            body: formData
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Jadvaldagi statusni yangilash
-                    document.getElementById('status_' + applicationId).innerText = data.status === 'accepted'
-                        ? 'Qabul qilingan'
-                        : 'Rad etilgan';
-                    // Modalni yopish
-                    const modal = bootstrap.Modal.getInstance(document.getElementById('applicationModal_' + applicationId));
-                    modal.hide();
-                } else {
-                    alert('Xatolik yuz berdi!');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-
-        return false; // Formani qayta yuklashni oldini olish
-    }
-    function updateStatus(applicationId) {
+function updateStatus(applicationId) {
     const form = document.getElementById('statusForm_' + applicationId);
     const formData = new FormData(form);
     const csrfToken = formData.get('csrfmiddlewaretoken');
@@ -551,28 +508,39 @@ setTimeout(() => {
         return false;
     }
 
-    fetch(`/update_status/${applicationId}/`, {
-        method: 'POST',
-        headers: {
-            'X-CSRFToken': csrfToken
-        },
-        body: formData
+   fetch(`/update_status/${applicationId}/`, {
+    method: 'POST',
+    headers: {
+        'X-CSRFToken': csrfToken
+    },
+    body: formData
+})
+    .then(response => {
+        if (!response.ok) {
+            console.error("Xatolik:", response.statusText);
+            return response.json();  // Agar status 200 bo'lmasa, xatolikni qayta o'qish
+        }
+        return response.json();
     })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                document.getElementById('status_' + applicationId).innerText =
-                    data.status === 'accepted' ? 'Qabul qilingan' : 'Rad etilgan';
-                const modal = bootstrap.Modal.getInstance(document.getElementById('applicationModal_' + applicationId));
-                modal.hide();
-            } else {
-                alert(data.message || 'Xatolik yuz berdi!');
-            }
-        })
-        .catch(error => console.error('Error:', error));
+    .then(data => {
+        if (data.success) {
+            document.getElementById('status_' + applicationId).innerText =
+                data.status === 'accepted' ? 'Qabul qilingan' : 'Rad etilgan';
+            const modal = bootstrap.Modal.getInstance(document.getElementById('applicationModal_' + applicationId));
+            modal.hide();
+        } else {
+            alert(data.message || 'Xatolik yuz berdi!');
+        }
+    })
+    .catch(error => {
+        console.error('AJAX xatolik:', error);
+        alert('Server bilan bog'lanishda xatolik yuz berdi!');
+    });
 
-    return false;
-}
+        .catch(error => {
+        console.error('AJAX xatolik:', error);
+        alert('Server bilan bog'lanishda xatolik yuz berdi!');
+    });
 
 </script>
 <script>
@@ -705,45 +673,48 @@ renderCalendar(currentDate);
 </script>
 
 <script>
-    function updateSciences() {
-        var directionId = document.getElementById("direction").value;
-        var sciencesSelect = document.getElementById("sciences");
+   function updateSciences() {
+    var directionId = document.getElementById("direction").value;
+    var sciencesSelect = document.getElementById("sciences");
 
-        // Fanlar optionlarini tozalash
-        sciencesSelect.innerHTML = '<option value="" disabled selected>Fan nomini tanlang</option>';
+    // Fanlar dropdownini tozalash
+    sciencesSelect.innerHTML = '<option value="" disabled selected>Fan nomini tanlang</option>';
 
-        if (directionId) {
-            // AJAX so'rovi yuborish
-            fetch("{% url 'admin_applications' %}?direction_id=" + directionId, {
-                method: 'GET',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.sciences.length > 0) {
-                    // Fanlar mavjud bo'lsa
-                    data.sciences.forEach(science => {
-                        var option = document.createElement('option');
-                        option.value = science.id;
-                        option.textContent = science.name;
-                        sciencesSelect.appendChild(option);
-                    });
-                } else {
-                    // Fanlar mavjud bo'lmasa
+    if (directionId) {
+        // AJAX so'rovini yuborish
+        fetch("{% url 'admin_applications' %}?direction_id=" + directionId, {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.sciences.length > 0) {
+                // Fanlar mavjud bo'lsa, ularni dropdownga qo'shish
+                data.sciences.forEach(science => {
                     var option = document.createElement('option');
-                    option.value = "";
-                    option.textContent = "Bu ixtisoslikka aloqador fan mavjud emas";
+                    option.value = science.id;
+                    option.textContent = science.name;
                     sciencesSelect.appendChild(option);
-                }
-            })
-            .catch(error => {
-                console.error('Fanlarni olishda xato:', error);
-            });
-        }
+                });
+            } else {
+                // Agar fanlar bo'lmasa, fallback xabarini ko'rsatish
+                var option = document.createElement('option');
+                option.value = "";
+                option.textContent = "Bu ixtisoslikka aloqador fan mavjud emas";
+                sciencesSelect.appendChild(option);
+            }
+        })
+        .catch(error => {
+            console.error('Fanlarni olishda xato:', error);
+        });
     }
+}
+
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 </body>
 </html>

@@ -45,6 +45,19 @@
                     <div class="card-body">Foydalanuvchilar soni
                         <div><h1>25</h1></div>
                     </div>
+			{% if form.errors %}
+    <div class="alert alert-danger">
+        <strong>Xatolik yuz berdi!</strong>
+        <ul>
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <li>{{ field }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
 
                     <!--                                    <div class="card-footer d-flex align-items-center justify-content-between">-->
                     <!--                                        <a class="small text-white stretched-link" href="#">View Details</a>-->

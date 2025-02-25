@@ -119,19 +119,19 @@ class Applications(models.Model):
 
 
 class ExamResult(models.Model):
-    application = models.ForeignKey(Applications, on_delete=models.CASCADE, related_name='Ariza')
+    application = models.ForeignKey(Applications, on_delete=models.CASCADE, related_name='exam_results')
     score = models.IntegerField(null=True, blank=True)
-    score = models.IntegerField()
     exam_date = models.DateField()
-    exam_subject = models.CharField(max_length=255)
-    passed = models.CharField(max_length=255)
+    exam_subject = models.CharField(max_length=255, null=True, blank=True)
+    passed = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
         return f"{self.application} - {self.exam_subject} - {self.score}"
 
     class Meta:
         verbose_name = 'ExamResult'
-        verbose_name_plural = 'ExamResult'
+        verbose_name_plural = 'ExamResults'
+
 
 
 

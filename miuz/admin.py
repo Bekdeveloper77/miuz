@@ -1,7 +1,5 @@
 from django.contrib import admin
 from .models import (Menu,Sciences,Applications,Groups,Edutype,Comissions, ExamResult,Curriculum)
-from .models import (Menu,Sciences,Applications,Groups,Edutype,Comissions, ExamResult)
-
 # Register your models here.
 
 # Register your models here.
@@ -10,7 +8,6 @@ admin.site.register(Sciences)
 admin.site.register(Edutype)
 admin.site.register(Groups)
 admin.site.register(Comissions)
-
 admin.site.register(Curriculum)
 
 @admin.register(Applications)

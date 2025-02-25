@@ -230,6 +230,12 @@ margin-bottom: 0px;
     color: white;
 }
 
+.btn-outline-success{
+  padding: 0.2rem !important;
+}
+.btn-outline-success{
+  padding: 0px; 
+}
     </style>
 
 </head>
@@ -321,7 +327,11 @@ margin-bottom: 0px;
                         Guruhlar
                     </a>
 
-
+		   <a class="nav-link {% if request.resolver_match.url_name == 'comission' %}active{% endif %}"
+                       href="{% url 'comission' %}">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fas fa-layer-group"></i></div>
+                        Komissiya
+                    </a>
                     <a class="nav-link {% if request.resolver_match.url_name == 'archive' %}active{% endif %}" href="{% url 'archive' %}">
                         <div class="sb-nav-link-icon"><i class="fa-solid fas fa-archive"></i></div>
                         Arxiv
@@ -331,12 +341,7 @@ margin-bottom: 0px;
                         Dasturlar
                     </a>
 
-                    <a class="nav-link {% if request.resolver_match.url_name == 'archive' %}active{% endif %}"
-                       href="{% url 'archive' %}">
-                        <div class="sb-nav-link-icon"><i class="fa-solid fas fa-archive"></i></div>
-                        Arxiv
-                    </a>
-                </div>
+                  </div>
             </div>
 
         </nav>
@@ -349,12 +354,8 @@ margin-bottom: 0px;
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Malakaviy m &copy; Your Website 2023</div>
-                    <div>
-                        <a href="#">Privacy Policy</a>
-                        &middot;
-                        <a href="#">Terms &amp; Conditions</a>
-                    </div>
+                    <div class="text-muted">Malakaviy imtihon &copy; mi.nuu.uz 2025</div>
+                    
                 </div>
             </div>
         </footer>
@@ -533,7 +534,8 @@ setTimeout(() => {
 </script>
 
 <script>
-    function toggleCheckboxes(current, otherId) {
+    
+function toggleCheckboxes(current, otherId) {
         const otherCheckbox = document.getElementById(otherId);
         if (current.checked) {
             otherCheckbox.checked = false; // Boshqa checkboxni o'chirish
@@ -607,7 +609,6 @@ setTimeout(() => {
 
     return false;
 }
-
 </script>
 <script>
     def validate_file(file):
@@ -739,44 +740,49 @@ renderCalendar(currentDate);
 </script>
 
 <script>
-    function updateSciences() {
-        var directionId = document.getElementById("direction").value;
-        var sciencesSelect = document.getElementById("sciences");
+   function updateSciences() {
+    var directionId = document.getElementById("direction").value;  // Tanlangan direction ID
+    var sciencesSelect = document.getElementById("sciences");
 
-        // Fanlar optionlarini tozalash
-        sciencesSelect.innerHTML = '<option value="" disabled selected>Fan nomini tanlang</option>';
+    // Fanlar dropdownini tozalash
+    sciencesSelect.innerHTML = '<option value="" disabled selected>Fan nomini tanlang</option>';
 
-        if (directionId) {
-            // AJAX so'rovi yuborish
-            fetch("{% url 'admin_applications' %}?direction_id=" + directionId, {
-                method: 'GET',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.sciences.length > 0) {
-                    // Fanlar mavjud bo'lsa
-                    data.sciences.forEach(science => {
-                        var option = document.createElement('option');
-                        option.value = science.id;
-                        option.textContent = science.name;
-                        sciencesSelect.appendChild(option);
-                    });
-                } else {
-                    // Fanlar mavjud bo'lmasa
+    if (directionId) {
+        // AJAX so'rovini yuborish
+        fetch("{% url 'admin_applications' %}?direction_id=" + directionId, {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'  // Ajax so'rovi ekanligini bildirish
+            }
+        })
+        .then(response => response.json())  // JSON formatidagi javobni olish
+        .then(data => {
+            if (data.sciences.length > 0) {
+                // Fanlar mavjud bo'lsa, ularni dropdownga qo'shish
+                data.sciences.forEach(science => {
                     var option = document.createElement('option');
-                    option.value = "";
-                    option.textContent = "Bu ixtisoslikka aloqador fan mavjud emas";
+                    option.value = science.id;
+                    option.textContent = science.name;
                     sciencesSelect.appendChild(option);
-                }
-            })
-            .catch(error => {
-                console.error('Fanlarni olishda xato:', error);
-            });
-        }
+                });
+            } else {
+                // Agar fanlar bo'lmasa, fallback xabarini ko'rsatish
+                var option = document.createElement('option');
+                option.value = "";
+                option.textContent = "Bu ixtisoslikka aloqador fan mavjud emas";
+                sciencesSelect.appendChild(option);
+            }
+        })
+        .catch(error => {
+            console.error('Fanlarni olishda xato:', error);
+        });
+    } else {
+        // Agar directionId tanlanmagan bo'lsa, fanlarni tozalash
+        sciencesSelect.innerHTML = '<option value="" disabled selected>Fan nomini tanlang</option>';
     }
+}
+
+
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

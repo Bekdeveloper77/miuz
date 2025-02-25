@@ -5,24 +5,11 @@
 
     <div class="container-fluid px-4">
         <h1 class="mt-4">PhD Exam</h1>
-
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">MALAKAVIY IMTIHON</li>
-
-        </ol>
-        {% if messages %}
-        <div class="alert-container">
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-            {% endfor %}
-        </div>
-
-
-    <div class="container-fluid px-4">
-        <h1 class="mt-4">PhD Exam</h1>
 	
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">MALAKAVIY IMTIHON</li>
+	
+
         </ol>
         {% if messages %}
         {% for message in messages %}
@@ -48,12 +35,7 @@
                 {% elif status == "accepted" %}
                 <div class="card bg-success text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
-
-                    <div><i class="fa-solid fa fa-check-circle" aria-hidden="true"
-                            style="font-size: 40px; padding-left: 12px;"></i></div>
-
                     <div><i class="fa-solid fa fa-check-circle" aria-hidden="true"  style="font-size: 40px; padding-left: 12px;"></i></div>
-
                     <div class="card-body">{{ status }}
                         <div><h1>{{ count }}</h1></div>
                     </div>
@@ -61,10 +43,6 @@
                 {% elif status == "rejected" %}
                 <div class="card bg-danger text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
-
-                    <div><i class="fa-solid fa fa-times-circle" aria-hidden="true"
-                            style="font-size: 40px; padding-left: 12px;"></i></div>
-
                     <div><i class="fa-solid fa fa-times-circle" aria-hidden="true" style="font-size: 40px; padding-left: 12px;"></i></div>
                     <div class="card-body">{{ status }}
                         <div><h1>{{ count }}</h1></div>
@@ -76,10 +54,6 @@
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-warning text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
-
-                    <div><i class="fa-solid fa fa-users" aria-hidden="true"
-                            style="font-size: 40px; padding-left: 12px;"></i></div>
-
                     <div><i class="fa-solid fa fa-users" aria-hidden="true" style="font-size: 40px; padding-left: 12px;"></i></div>
                     <div class="card-body">Foydalanuvchilar soni
                         <div><h1>25</h1></div>
@@ -98,23 +72,19 @@
             <div class="card-header p-3">
                 <div style="display: flex; align-items: center">
                     <i class="fas fa-table me-1"></i>
-                    <h4><b>Arizalar ro‘yxati</b></h4>
+                    <h4><b>Arizalar royxati</b></h4>
                 </div>
                 <div style="display: flex;">
                     <!-- HTML -->
 
                     <a href="{% url 'export_excel' %}" class="btn btn-success">
-
-                        <i class="fa-solid fas fa-file-excel" aria-hidden="true"
-                           style="font-size: 20px; padding-left: 6px;"></i> <b>Excel</b>
                         <i class="fa-solid fas fa-file-excel" aria-hidden="true" style="font-size: 20px; padding-left: 6px;"></i> <b>Excel</b>
-
                     </a>
                     <button type="button" data-toggle="modal" data-target="#exampleModal" id="openModalBtn"
                             class="btn btn-success"
                             style="margin-left: 6px; padding-left:14px; padding-right:14px">
                         <i class="fa-solid fas fa-plus"></i>
-                        <a><b>Ariza qo‘shish(zakaz)</b></a>
+                        <a><b>Ariza qoshish(zakaz)</b></a>
                     </button>
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" aria-labelledby="taskModalLabel" aria-hidden="true"
@@ -139,15 +109,8 @@
 
                                     <div class="modal-body" style="height:auto;">
 
-
-                                        <p style="color: red; font-family: italic">Ariza ma'lumotlarini lotin yozuvuda
-                                            kiriting!</p>
-                                        <p style="color: red; font-family: italic">E'tibor bering: yuklagan fayllaringiz
-                                            PDF formatda va 2 mb dan oshmasligi kerak!</p>
-
                                     <p style="color: red; font-family: italic">Ariza ma'lumotlarini lotin yozuvuda kiriting!</p>
                                         <p style="color: red; font-family: italic">E'tibor bering: yuklagan fayllaringiz PDF formatda va 2 mb dan oshmasligi kerak!</p>
-
                                         <div class="row" style="padding:10px;">
 
 
@@ -162,36 +125,21 @@
 
                                                     <div class="col-md-4">
                                                         <label class="form-label" for="last_name">Familiya:</label>
-
-                                                        <input class="form-control" name="last_name" id="last_name"
-                                                               placeholder="Familiya"
-                                                               value="{{ request.user.last_name }}" required>
                                                         <input class="form-control" name="last_name" id="last_name" 
                                                                placeholder="Familiya" value="{{ request.user.last_name }}" required>
-
                                                     </div>
 
                                                     <div class="col-md-4">
                                                         <label class="form-label" for="first_name">Ism:</label>
                                                         <input class="form-control" name="first_name" id="first_name"
-
-                                                               placeholder="Ism" value="{{ request.user.first_name }}"
-                                                               required>
-
                                                                placeholder="Ism" value="{{ request.user.first_name }}" required>
-
                                                     </div>
 
                                                     <div class="col-md-4">
                                                         <label class="form-label" for="mid_name">Otasining
                                                             ismi:</label>
                                                         <input class="form-control" name="mid_name" id="mid_name"
-
-                                                               placeholder="Otasining ismi"
-                                                               value="{{ request.user.mid_name }}">
-
                                                                placeholder="Otasining ismi" value="{{ request.user.mid_name }}">
-
                                                     </div>
 
 
@@ -201,39 +149,6 @@
 
                                                     <div class="col-md-12">
 
-
-                                                        <label class="form-label" for="direction">Ixtisoslik
-                                                            nomi</label>
-                                                        <!--                                                        <select class="form-select" id="direction" >-->
-                                                        <!--                                                            <option value="">Barchasi</option>-->
-                                                        <!--                                                            {% for direction in directions %}-->
-                                                        <!--                                                                <option value="{{ direction.id }}" {% if direction.id == selected_direction_id %}selected{% endif %}>-->
-                                                        <!--                                                                    {{ direction.directions }}-->
-                                                        <!--                                                                </option>-->
-                                                        <!--                                                            {% endfor %}-->
-                                                        <!--                                                        </select>-->
-                                                        <select class="form-select" id="direction" name="directions"
-                                                                onchange="updateSciences()">
-                                                            <option value="">Barchasi</option>
-                                                            {% for direction in directions %}
-                                                            <option value="{{ direction.id }}">{{ direction.directions
-                                                                }}
-                                                            </option>
-                                                            {% endfor %}
-                                                        </select>
-
-                                                        <!--                                                        <select class="form-select" name="directions" id="id_directions"-->
-                                                        <!--                                                                required>-->
-                                                        <!--                                                            <option value="" disabled selected>Yo‘nalishni tanlang-->
-                                                        <!--                                                            </option>-->
-                                                        <!--                                                            {% for direction in directions %}-->
-                                                        <!--                                                            <option value="{{ direction.id }}">{{ direction.directions }}-->
-                                                        <!--                                                            </option>-->
-                                                        <!--                                                            {% empty %}-->
-                                                        <!--                                                            <option value="">Yo'nalishlar mavjud emas</option>-->
-                                                        <!--                                                            {% endfor %}-->
-                                                        <!--                                                        </select>-->
-=======
                                                         <label class="form-label" for="direction">Ixtisoslik nomi</label>
 <!--                                                        <select class="form-select" id="direction" >-->
 <!--                                                            <option value="">Barchasi</option>-->
@@ -252,7 +167,7 @@
 
 <!--                                                        <select class="form-select" name="directions" id="id_directions"-->
 <!--                                                                required>-->
-<!--                                                            <option value="" disabled selected>Yo‘nalishni tanlang-->
+<!--                                                            <option value="" disabled selected>Yonalishni tanlang-->
 <!--                                                            </option>-->
 <!--                                                            {% for direction in directions %}-->
 <!--                                                            <option value="{{ direction.id }}">{{ direction.directions }}-->
@@ -261,7 +176,6 @@
 <!--                                                            <option value="">Yo'nalishlar mavjud emas</option>-->
 <!--                                                            {% endfor %}-->
 <!--                                                        </select>-->
-
                                                     </div>
 
 
@@ -285,26 +199,6 @@
                                                     <div class="col-md-6">
                                                         <label class="form-label" for="sciences">Fan nomi</label>
                                                         <select class="form-select" id="sciences" name="sciences">
-
-                                                            <option value="" disabled selected>Fan nomini tanlang
-                                                            </option>
-                                                            {% for science in sciences %}
-                                                            <option value="{{ science.id }}">{{ science.name }}</option>
-                                                            {% empty %}
-                                                            <option value="">Bu ixtisoslikka aloqador fan mavjud emas
-                                                            </option>
-                                                            {% endfor %}
-                                                        </select>
-                                                        <!--                                                        <select class="form-select" name="sciences" id="id_sciences"-->
-                                                        <!--                                                                required>-->
-                                                        <!--                                                            <option disabled selected>Fanni tanlang</option>-->
-                                                        <!--                                                            {% for science in sciences %}-->
-                                                        <!--                                                            <option value="{{ science.id }}">{{ science.name }}</option>-->
-                                                        <!--                                                            {% empty %}-->
-                                                        <!--                                                            <option value="">Fanlar mavjud emas</option>-->
-                                                        <!--                                                            {% endfor %}-->
-                                                        <!--                                                        </select>-->
-
                                                             <option value="" disabled selected>Fan nomini tanlang</option>
                                                             {% for science in sciences %}
                                                                 <option value="{{ science.id }}">{{ science.name }}</option>
@@ -321,7 +215,6 @@
 <!--                                                            <option value="">Fanlar mavjud emas</option>-->
 <!--                                                            {% endfor %}-->
 <!--                                                        </select>-->
-
                                                     </div>
 
 
@@ -374,14 +267,7 @@
                                                                 <div class="col-md-6">
 
                                                                     <label class="form-label">Telefon raqam:</label><br>
-
-                                                                    <input class="form-control phone-input" type="text"
-                                                                           id="phone_number" name="phone_number"
-                                                                           placeholder="+998 XX XXX-XX-XX" value=""
-                                                                           maxlength="13" required>
-
-                                                                <input class="form-control phone-input" type="text" id="phone_number" name="phone_number" placeholder="+998 XX XXX-XX-XX" value="" maxlength="13" required>
-
+                                                                <input class="form-control phone-input" type="text" id="phone_number1" name="phone_number" placeholder="+998 XX XXX-XX-XX" value="" maxlength="13" required>
 
                                                                 </div>
 
@@ -404,7 +290,7 @@
 
                                                                 <div class="col-md-12">
                                                                     <label class="form-label" for="work_order">Ish
-                                                                        buyrug‘i</label>
+                                                                        buyrugi</label>
                                                                     <input class="form-control" type="file"
                                                                            name="work_order"
                                                                            id="work_order">
@@ -433,14 +319,7 @@
                                                                 <div class="col-md-6">
 
                                                                     <label class="form-label">Telefon raqam:</label><br>
-
-                                                                    <input class="form-control phone-input" type="text"
-                                                                           id="phone_number" name="phone_number"
-                                                                           placeholder="+998 XX XXX-XX-XX" value=""
-                                                                           maxlength="13" required>
-
                                                                     <input class="form-control phone-input" type="text" id="phone_number" name="phone_number" placeholder="+998 XX XXX-XX-XX" value="" maxlength="13" required>
-
 
 
 
@@ -459,7 +338,7 @@
                                                                 </div>
 
                                                                 <div class="col-md-6">
-                                                                    <label class="form-label" for="reference_letter">Yo‘llanma
+                                                                    <label class="form-label" for="reference_letter">Yollanma
                                                                         xati</label>
                                                                     <input class="form-control" type="file"
                                                                            name="reference_letter"
@@ -572,10 +451,11 @@
                     <tr>
                         <th>ID</th>
                         <th>FIO</th>
-                        <th>YO‘NALISH</th>
+                        <th>YONALISH</th>
                         <th>TASHKILOT</th>
                         <th>FAN NOMI</th>
                         <th>STATUS</th>
+			<th> BALL KIRTISH</th>
                         <th>AMAL</th>
                     </tr>
                     </thead>
@@ -600,12 +480,19 @@
                         btn btn-outline-secondary
                     {% endif %}">{{ application.get_status_display }}</span>
                         </td>
+			<td>
+			<button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                        data-bs-target="#applicationModalball_{{ application.id }}">
+                                    <i class="fa-regular fas fa-pencil"></i> Ball
+                               
+			</button>
+			</td>
                         <td>
                             <form method="POST" action="{% url 'update_status' pk=application.id %}">
                                 {% csrf_token %}
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal"
                                         data-bs-target="#applicationModal_{{ application.id }}">
-                                    <i class="fa-regular fas fa-eye"></i> Ko‘rish
+                                    <div style="display:flex; align-items: center; justify-contenct: space-between;"><i class="fa-regular fas fa-eye" style="margin-right: 4px"></i> Korish</div>
                                 </button>
                             </form>
                         </td>
@@ -618,6 +505,114 @@
                 </table>
 
             </div>
+	<!-- ball uchun -->
+	{% for application in applications %}
+
+            <div class="modal fade" id="applicationModalball_{{ application.id }}" tabindex="-1"
+                 aria-labelledby="modalLabel"
+                 aria-hidden="true"
+                 style="padding-right: 17px;">
+
+
+                <div class="modal-dialog modal-lg" role="document">
+
+                    <!-- FORM-->
+                    <form method="post" action="{% url 'save_exam_results' application.id %}">
+       
+       
+                        {% csrf_token %}
+                        <input type="hidden" name="item_id" value="id">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalLabel">Ariza ma`lumotlari</h5>
+                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+
+
+                            <div class="modal-body" style="height:auto;">
+
+
+                                <div class="row" style="padding:10px;">
+
+
+                                    <fieldset class="p-2" style="border: 1px solid #bbbbbb !important;">
+
+                                        <legend class="w-auto"
+                                                style="font-size:20px;margin-top:-30px; background-color: white; color: black;padding:5px;">
+                                            Talabgor ma`lumotlari
+                                        </legend>
+
+                                        <div class="row" style="padding:10px;">
+
+                                            <div class="col-md-12">
+                                                <label class="form-label">F.I.SH:</label><br>
+                                                <b>{{application.last_name}} {{application.first_name}} {{application.mid_name}}</b>
+                                            </div>
+
+                                        </div>
+					
+                                        
+                                    </fieldset>
+
+                                    <div class="mb-4"></div>
+
+                                    
+                                      <fieldset class="p-2" style="border: 1px solid #bbbbbb !important;">
+
+                                        <legend class="w-auto"
+                                                style="font-size:20px;margin-top:-30px; background-color: white; color: black;padding:5px;">
+                                            Natija
+                                        </legend>
+
+                                        <div class="row" style="padding:10px;">
+
+                                            <div name="natija_kontent"></div>
+
+					
+    					<label for="score">Score:</label>
+    					<input type="number" name="score" required><br>
+
+    					<label for="exam_date">Exam Date:</label>
+    					<input type="date" name="exam_date" required><br>
+    					<button class="btn btn-primary" type="submit" style="float: right; width: inherit; text-align:center; margin: 20px">Saqlash</button>
+					
+
+                                            <label class="form-label"></label>
+                                           
+                                              
+					{% for result in results %}
+    					{% if result.application == application %}
+        				<a href="{% url 'generate_certificate' result.id %}" class="btn btn-primary">Sertifikatni Yuklab Olish</a>
+    					{% endif %}
+					{% endfor %}    
+					</div>
+
+                                           
+                                        </div>
+					 
+
+
+                                    </fieldset>
+
+                                    <div class="mb-4"></div>
+
+                                </div>
+
+                            </div>
+
+                           
+                        </div>
+                    </form>
+                    <!-- FORM END -->
+
+                </div>
+
+            </div>
+            {% endfor %}
+<!-- endball uchun -->
+
             {% for application in applications %}
 
             <div class="modal fade" id="applicationModal_{{ application.id }}" tabindex="-1"
@@ -661,12 +656,7 @@
 
                                             <div class="col-md-12">
                                                 <label class="form-label">F.I.SH:</label><br>
-
-                                                <b>{{application.last_name}} {{application.first_name}}
-                                                    {{application.father_name}}</b>
-
-                                                <b>{{application.last_name}} {{application.first_name}} {{application.father_name}}</b>
-
+                                                <b>{{application.last_name}} {{application.first_name}} {{application.mid_name}}</b>
                                             </div>
 
                                         </div>
@@ -834,123 +824,22 @@
 
                                         <div class="row" style="padding:10px;">
 
-
-                                            <div name="natija_kontent">
-
-                                            </div>
-
                                             <div name="natija_kontent"></div>
 
 
                                             <label class="form-label"></label>
-
-                                            <div class="col-md-6">
-                                                <label class="d-block" for="">
-                                                    <label>Imtihon sana</label>
-
-                                                    <input class="form-control" type="date" name="imt_sana"
-                                                           value="">
-
-                                                </label>
-                                            </div>
-
-                                             <div class="col-md-6">
-                                                <label class="form-label">Toplagan ball</label><br>
-                                                <input class="form-control" type="number" name="ball"
-                                                           value="" placeholder="ballni kiriting">
-                                            </div>
-					    <div class="col-md-6">
-                                            <div><button type="submit" class="btn btn-primary" id="save">Saqlash</button></div>
-     
-                                            </div>
-
-
-<!--                                            <div class="col-md-6">-->
-<!--                                                <br>-->
-<!--                                                <label>-->
-<!--                                                    <input type="checkbox" id="kom_checkbox_{{ application.id }}"-->
-<!--                                                           onchange="toggleContent(this, 'kom_content_{{ application.id }}')">-->
-<!--                                                    Komissiya a'zolari-->
-<!--                                                </label>-->
-<!--                                            </div>-->
-
-
-<!--                                            <div class="row" style="padding:10px;">-->
-<!--                                                {% for group in applications %}-->
-<!--                                                &lt;!&ndash; Komissiya Formasi &ndash;&gt;-->
-<!--                                                <div id="kom_content_{{ application.id }}" class="hidden-content">-->
-
-<!--                                                    <label>Kommisiya raisi</label>-->
-<!--                                                    <input class="form-control" name="kom_raisi" placeholder="Raisi"-->
-<!--                                                           value="{{ group.directions.comission.chairman|default:'-' }}">-->
-
-<!--                                                    <label>Rais o'rinbosari</label>-->
-<!--                                                    <input class="form-control" name="kom_rais_orinbosari"-->
-<!--                                                           placeholder="O'rinbosar"-->
-<!--                                                           value="{{ group.directions.comission.deputy|default:'-' }}">-->
-
-<!--                                                    <label>Kotib</label>-->
-<!--                                                    <input class="form-control" name="kom_kotib" placeholder="Kotib"-->
-<!--                                                           value="{{ group.directions.comission.secretary|default:'-' }}">-->
-
-<!--                                                    <label>Kommisiya a'zolari</label>-->
-<!--                                                    <textarea class="form-control" name="kom_azolari"-->
-<!--                                                              placeholder="A'zolar">{{ group.directions.comission.members|default:'-' }}</textarea>-->
-<!--                                                    {% empty %}-->
-<!--                                                    <p>Hech qanday ma'lumot topilmadi!</p>-->
-
-<!--                                                </div>-->
-<!--                                                {% endfor %}-->
-
-<!--                                            </div>-->
-
-
-                                        </div>
-
-
-                                            <div class="col-md-6">
-                                                <br>
-                                                <label>
-                                                    <input type="checkbox" id="kom_checkbox_{{ application.id }}"
-                                                           onchange="toggleContent(this, 'kom_content_{{ application.id }}')">
-                                                    Komissiya a'zolari
-                                                </label>
-                                            </div>
-
-
-                                            <div class="row" style="padding:10px;">
-                                                {% for group in applications %}
-                                                <!-- Komissiya Formasi -->
-                                                <div id="kom_content_{{ application.id }}" class="hidden-content">
-
-                                                    <label>Kommisiya raisi</label>
-                                                    <input class="form-control" name="kom_raisi" placeholder="Raisi"
-                                                           value="{{ group.directions.comission.chairman|default:'-' }}">
-
-                                                    <label>Rais o'rinbosari</label>
-                                                    <input class="form-control" name="kom_rais_orinbosari"
-                                                           placeholder="O'rinbosar"
-                                                           value="{{ group.directions.comission.deputy|default:'-' }}">
-
-                                                    <label>Kotib</label>
-                                                    <input class="form-control" name="kom_kotib" placeholder="Kotib"
-                                                           value="{{ group.directions.comission.secretary|default:'-' }}">
-
-                                                    <label>Kommisiya a'zolari</label>
-                                                    <textarea class="form-control" name="kom_azolari"
-                                                              placeholder="A'zolar">{{ group.directions.comission.members|default:'-' }}</textarea>
-                                                    {% empty %}
-                                                    <p>Hech qanday ma'lumot topilmadi!</p>
-
-                                                </div>
-                                                {% endfor %}
-
-                                            </div>
+                                           
+                                              
+					{% for result in results %}
+    {% if result.application == application %}
+        <a href="{% url 'generate_certificate' result.id %}" class="btn btn-primary">Sertifikatni Yuklab Olish</a>
+    {% endif %}
+{% endfor %}    
+					</div>
 
                                            
                                         </div>
 					 
-
 
 
                                     </fieldset>
