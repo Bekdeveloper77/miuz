@@ -472,8 +472,14 @@
                     {% elif application.status == 'rejected' %}
                         btn btn-outline-danger
                     {% else %}
-                        btn btn-outline-secondary
-                    {% endif %}">{{ application.get_status_display }}</span>
+                        btn btn-outline-primary
+                    {% endif %}">
+			{% if application.status == 'graded' %}
+           	 Baholangan
+        	{% else %}
+            	{{ application.get_status_display }}
+        	{% endif %}
+			</span>
                         </td>
 			<td>
 			<button type="button" class="btn btn-info" data-bs-toggle="modal"

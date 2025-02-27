@@ -401,7 +401,7 @@
                                 <td> {% if application.status == 'graded' %}
         {% for result in results %}
     					{% if result.application == application %}
-        				<a href="{% url 'generate_certificate' result.id %}" class="btn btn-primary">Sertifikatni Yuklab Olish</a>
+        				<a href="{% url 'generate_certificate' result.id %}" class="btn btn-primary">Sertifikatni Yuklash</a>
     					{% endif %}
 					{% endfor %}
     {% else %}
@@ -513,11 +513,7 @@
 
                                                         <div class="col-md-8">
 
-							{% for result in results %}
-    					{% if result.application == application %}
-        				<a href="{% url 'generate_certificate' result.id %}" class="btn btn-primary">Sertifikatni Yuklab Olish</a>
-    					{% endif %}
-					{% endfor %}    
+							    
                                                         </div>
                                                     </div>
                                                 </div>
