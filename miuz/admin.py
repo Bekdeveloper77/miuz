@@ -21,7 +21,7 @@ class ApplicationsAdmin(admin.ModelAdmin):
 
 class ExamResultAdmin(admin.ModelAdmin):
 
-    list_display = ('application', 'score', 'exam_date',)  # Ko'rsatadigan ustunlar
+    list_display = ('application', 'score', 'exam_date','exam_subject')  # Ko'rsatadigan ustunlar
     search_fields = ('application__user__username',)  # Foydalanuvchi nomi orqali qidirish
     list_display = ('application', 'score', 'exam_date', 'exam_subject', 'passed')  # Ko'rsatadigan ustunlar
     search_fields = ('application__user__username',)  # Foydalanuvchi nomi orqali qidirish

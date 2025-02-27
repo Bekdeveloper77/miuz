@@ -12,7 +12,7 @@
                 {% if status == "pending" %}
                 <div class="card bg-primary text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
-                    <div><i class="fas fa-hourglass-start" style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div><i class="fas fa-hourglass-start" style="font-size: 40px; padding-left: 12px; color: wheat"></i></div>
                     <div class="card-body">{{ status }}
                         <div><h1>{{ count }}</h1></div>
                     </div>
@@ -20,7 +20,7 @@
                 {% elif status == "accepted" %}
                 <div class="card bg-success text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
-                    <div><i class="fa-solid fa fa-check-circle" aria-hidden="true"  style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div><i class="fa-solid fa fa-check-circle" aria-hidden="true"  style="font-size: 40px; padding-left: 12px; color: forestgreen"></i></div>
                     <div class="card-body">{{ status }}
                         <div><h1>{{ count }}</h1></div>
                     </div>
@@ -28,42 +28,24 @@
                 {% elif status == "rejected" %}
                 <div class="card bg-danger text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
-                    <div><i class="fa-solid fa fa-times-circle" aria-hidden="true" style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div><i class="fa-solid fa fa-times-circle" aria-hidden="true" style="font-size: 40px; padding-left: 12px; color: crimson"></i></div>
                     <div class="card-body">{{ status }}
                         <div><h1>{{ count }}</h1></div>
                     </div>
                 </div>
-                {% endif %}
+		{% elif status == 'graded' %}
+            	<div class="card bg-success text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-clipboard-check" aria-hidden="true"  style="font-size: 40px; padding-left: 12px; color: forestgreen"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+            {% endif %}
             </div>
             {% endfor %}
 
 
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-warning text-white mb-4"
-                     style="display:flex; align-items: center; flex-direction: row;">
-                    <div><i class="fa-solid fa fa-users" aria-hidden="true" style="font-size: 40px; padding-left: 12px;"></i></div>
-                    <div class="card-body">Foydalanuvchilar soni
-                        <div><h1>25</h1></div>
-                    </div>
-			{% if form.errors %}
-    <div class="alert alert-danger">
-        <strong>Xatolik yuz berdi!</strong>
-        <ul>
-            {% for field, errors in form.errors.items %}
-                {% for error in errors %}
-                    <li>{{ field }}: {{ error }}</li>
-                {% endfor %}
-            {% endfor %}
-        </ul>
-    </div>
-{% endif %}
-
-
-                    <!--                                    <div class="card-footer d-flex align-items-center justify-content-between">-->
-                    <!--                                        <a class="small text-white stretched-link" href="#">View Details</a>-->
-                    <!--                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
-                    <!--                                    </div>-->
-                </div>
+            
             </div>
         </div>
         <div class="container mt-5">

@@ -13,11 +13,55 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-
+	    
     <!--    new datatable-->
 
 
+
     <style>
+	#layoutSidenav.toggled #layoutSidenav_nav {
+    	    display: none;
+	}
+	#layoutSidenav.toggled {
+    	    margin-left: -250px;
+    	    transition: margin 0.3s ease-in-out;
+	}
+	@media (max-width: 768px) {
+    #layoutSidenav {
+        transition: all 0.3s ease-in-out;
+    }
+    #layoutSidenav.toggled {
+        margin-left: 0 !important;
+    }
+    #layoutSidenav #layoutSidenav_nav {
+        position: absolute;
+        width: 250px;
+        height: 100vh;
+        background: #343a40;
+        left: -250px;
+        transition: left 0.3s ease-in-out;
+    }
+    #layoutSidenav.toggled #layoutSidenav_nav {
+        left: 0;
+    }
+}
+	/* Sidebar Default - Yashirilgan */
+#layoutSidenav_nav {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background: #343a40;
+    transition: left 0.3s ease-in-out;
+}
+
+/* Sidebar ochilganda */
+#layoutSidenav.toggled #layoutSidenav_nav {
+    left: 0;
+}
+
+
         .card1 {
             width: 340px;
             height: 340px;
@@ -713,7 +757,34 @@ renderCalendar(currentDate);
 }
 
 </script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let sidebarToggle = document.getElementById("sidebarToggle");
+        let layoutSidenav = document.getElementById("layoutSidenav");
+
+        function toggleSidebar() {
+            layoutSidenav.classList.toggle("toggled");
+        }
+
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener("click", toggleSidebar);
+            sidebarToggle.addEventListener("touchstart", toggleSidebar); // Mobil uchun
+        }
+
+        // Ekranning tashqarisiga bosganda menyuni yopish
+        document.addEventListener("click", function (event) {
+            if (!layoutSidenav.contains(event.target) && !sidebarToggle.contains(event.target)) {
+                layoutSidenav.classList.remove("toggled");
+            }
+        });
+
+        document.addEventListener("touchstart", function (event) {
+            if (!layoutSidenav.contains(event.target) && !sidebarToggle.contains(event.target)) {
+                layoutSidenav.classList.remove("toggled");
+            }
+        });
+    });
+</script>
 
 
 </body>

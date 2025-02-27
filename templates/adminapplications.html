@@ -27,7 +27,7 @@
                 {% if status == "pending" %}
                 <div class="card bg-primary text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
-                    <div><i class="fas fa-hourglass-start" style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div><i class="fas fa-hourglass-start" style="font-size: 40px; padding-left: 12px; color: wheat"></i></div>
                     <div class="card-body">{{ status }}
                         <div><h1>{{ count }}</h1></div>
                     </div>
@@ -35,7 +35,7 @@
                 {% elif status == "accepted" %}
                 <div class="card bg-success text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
-                    <div><i class="fa-solid fa fa-check-circle" aria-hidden="true"  style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div><i class="fa-solid fa fa-check-circle" aria-hidden="true"  style="font-size: 40px; padding-left: 12px; color: forestgreen"></i></div>
                     <div class="card-body">{{ status }}
                         <div><h1>{{ count }}</h1></div>
                     </div>
@@ -43,27 +43,22 @@
                 {% elif status == "rejected" %}
                 <div class="card bg-danger text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
-                    <div><i class="fa-solid fa fa-times-circle" aria-hidden="true" style="font-size: 40px; padding-left: 12px;"></i></div>
+                    <div><i class="fa-solid fa fa-times-circle" aria-hidden="true" style="font-size: 40px; padding-left: 12px; color: crimson"></i></div>
                     <div class="card-body">{{ status }}
                         <div><h1>{{ count }}</h1></div>
                     </div>
                 </div>
-                {% endif %}
+		{% elif status == 'graded' %}
+            	<div class="card bg-success text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-clipboard-check" aria-hidden="true"  style="font-size: 40px; padding-left: 12px; color: forestgreen"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+            {% endif %}
             </div>
             {% endfor %}
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-warning text-white mb-4"
-                     style="display:flex; align-items: center; flex-direction: row;">
-                    <div><i class="fa-solid fa fa-users" aria-hidden="true" style="font-size: 40px; padding-left: 12px;"></i></div>
-                    <div class="card-body">Foydalanuvchilar soni
-                        <div><h1>25</h1></div>
-                    </div>
 
-                    <!--                                    <div class="card-footer d-flex align-items-center justify-content-between">-->
-                    <!--                                        <a class="small text-white stretched-link" href="#">View Details</a>-->
-                    <!--                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
-                    <!--                                    </div>-->
-                </div>
             </div>
 
         </div>
@@ -267,7 +262,7 @@
                                                                 <div class="col-md-6">
 
                                                                     <label class="form-label">Telefon raqam:</label><br>
-                                                                <input class="form-control phone-input" type="text" id="phone_number1" name="phone_number" placeholder="+998 XX XXX-XX-XX" value="" maxlength="13" required>
+                                                                <input class="form-control phone-input" type="text" id="phone_number1" name="phone_number1" placeholder="+998 XX XXX-XX-XX" value="" maxlength="13" required>
 
                                                                 </div>
 
@@ -481,8 +476,8 @@
                     {% endif %}">{{ application.get_status_display }}</span>
                         </td>
 			<td>
-			<button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                        data-bs-target="#applicationModalball_{{ application.id }}">
+			<button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                        data-bs-target="#applicationModalball_{{ application.id }}" style="width:100%">
                                     <i class="fa-regular fas fa-pencil"></i> Ball
                                
 			</button>
@@ -571,17 +566,22 @@
                                             <div name="natija_kontent"></div>
 
 					
-    					<label for="score">Score:</label>
+    					<div class="row">
+					<div class="col-md-6">
+					<label for="score">Score:</label>
     					<input type="number" name="score" required><br>
+					</div>
+					<div class="col-md-6">
 
     					<label for="exam_date">Exam Date:</label>
     					<input type="date" name="exam_date" required><br>
     					<button class="btn btn-primary" type="submit" style="float: right; width: inherit; text-align:center; margin: 20px">Saqlash</button>
-					
+					</div>
+
+					</div>
 
                                             <label class="form-label"></label>
-                                           
-                                              
+                                                                                         
 					{% for result in results %}
     					{% if result.application == application %}
         				<a href="{% url 'generate_certificate' result.id %}" class="btn btn-primary">Sertifikatni Yuklab Olish</a>

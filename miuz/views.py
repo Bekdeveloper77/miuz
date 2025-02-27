@@ -14,7 +14,7 @@ from reportlab.pdfgen import canvas
 import qrcode
 import io
 from textwrap import wrap
-from weasyprint import HTML
+#from weasyprint import HTML
 import fitz  # PyMuPDF
 from django.http import FileResponse
 from django.contrib.auth import authenticate, login, logout
@@ -42,7 +42,8 @@ import textwrap
 logger = logging.getLogger(__name__)
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
-
+from django.utils.timezone import now
+from datetime import timedelta
 
 def LoginView(request):
     if request.method == "POST":
@@ -461,13 +462,16 @@ def admin_applicationfilter_admin(request):
             return render(request, "applications.html", locals())
 
        	# Telefon raqamining to'g'ri kiritilganligini tekshirish
-        phone_number = request.POST.get("phone_number", "").replace(' ', '').replace('-', '').strip()
-	
-        organization_name = None
+        # Avval checkboxlarni tekshirish
         if request.POST.get("chb_milliy") == "UZMU":
+            phone_number = request.POST.get("phone_number1", "").replace(' ', '').replace('-', '').strip()
             organization_name = "UZMU"
         elif request.POST.get("chb_boshqa") == "other":
+            phone_number = request.POST.get("phone_number", "").replace(' ', '').replace('-', '').strip()
             organization_name = request.POST.get("organization_name")
+        else:
+            phone_number = ""
+            organization_name = None
         
 
         # Obyekt yaratish
@@ -618,17 +622,20 @@ def ArchiveView(request):
         status_counts[status] = Applications.objects.filter(status=status).count()
     # user = request.user  # Hozirgi foydalanuvchi
 
-    edutype = Edutype.objects.all()
-    direction = Groups.objects.all()
-    science = Sciences.objects.all()
+    #edutype = Edutype.objects.all()
+    #direction = Groups.objects.all()
+    #science = Sciences.objects.all()
 
-    context = {
-        "science": science,
-        "edutype": edutype,
-        "direction": direction,
-        'status_counts': status_counts,
-    }
-    return render(request, 'archive.html', context)
+    #context = {
+     #   "science": science,
+      #  "edutype": edutype,
+       # "direction": direction,
+        #'status_counts': status_counts,
+    #}
+    #return render(request, 'archive.html', context)
+    three_days_ago = now() - timedelta(days=3)
+    archived_apps = Applications.objects.filter(created_at__lt=three_days_ago)  # 3 kundan eski arizalar
+    return render(request, 'archive.html', {'applications': archived_apps, 'status_counts': status_counts})
 
 
 import textwrap
@@ -713,9 +720,7 @@ def generate_certificate(request, result_id):
     try:
         exam_result = get_object_or_404(ExamResult, id=result_id)
 
-        if request.user.is_staff and exam_result.application.user != request.user:
-            return HttpResponse("Siz boshqa talabgorning sertifikatini ko'rishingiz mumkin emas.", status=403)
-
+        
         application = exam_result.application
         full_name = f"{application.last_name} {application.first_name} {application.mid_name}".upper()
         directions_text = str(application.directions)  # Ob'ektni stringga aylantirish
@@ -863,6 +868,9 @@ def verify_certificate(request, result_id):
 
 @login_required
 def curriculum_view(request):
+    status_counts = {}
+    for status, _ in Applications.STATUS_CHOICES:
+        status_counts[status] = Applications.objects.filter(status=status).count()
     if not request.user.is_superuser and not request.user.is_staff:
         messages.error(request, "Sizda ushbu amalni bajarish huquqi yo'q!")
         return redirect("curriculum_view")
@@ -881,7 +889,7 @@ def curriculum_view(request):
         return redirect("curriculum_view")
 
     curriculums = Curriculum.objects.all()
-    return render(request, "curriculums.html", {"curriculums": curriculums})
+    return render(request, "curriculums.html", {"curriculums": curriculums, "status_counts":status_counts})
 
 
 def curriculum_user(request):
@@ -895,20 +903,19 @@ def save_exam_results(request, application_id):
     application = get_object_or_404(Applications, id=application_id)
     
     if request.method == 'POST':
-        print("POST ma'lumotlari:", request.POST)  # Debug uchun
-
         form = ExamResultForm(request.POST)
         if form.is_valid():
             exam_result = form.save(commit=False)
-            exam_result.application = application  
+            exam_result.application = application
             exam_result.save()
 
-            print("Saqlangan natija:", exam_result.score, exam_result.exam_subject, exam_result.passed)  # Debug uchun
-            messages.success(request, "Natija muvaffaqiyatli saqlandi!")  
+            # Statusni "Baholangan" qilib o'zgartirish
+            application.status = 'graded'
+            application.save()
+
+            messages.success(request, "Natija muvaffaqiyatli saqlandi!")
             return redirect('admin_applications')
-        else:
-            print("Form xatoliklari:", form.errors)  # Debug uchun
-    else:
-        form = ExamResultForm()
     
+    form = ExamResultForm()
     return render(request, 'adminapplications.html', {'form': form, 'application': application})
+

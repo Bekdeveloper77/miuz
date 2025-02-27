@@ -13,11 +13,39 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-
+	
+    
     <!--    new datatable-->
 
 
     <style>
+	#layoutSidenav.toggled #layoutSidenav_nav {
+    	    display: none;
+	}
+	#layoutSidenav.toggled {
+    	    margin-left: -250px;
+    	    transition: margin 0.3s ease-in-out;
+	}
+	@media (max-width: 768px) {
+    #layoutSidenav {
+        transition: all 0.3s ease-in-out;
+    }
+    #layoutSidenav.toggled {
+        margin-left: 0 !important;
+    }
+    #layoutSidenav #layoutSidenav_nav {
+        position: absolute;
+        width: 250px;
+        height: 100vh;
+        background: #343a40;
+        left: -250px;
+        transition: left 0.3s ease-in-out;
+    }
+    #layoutSidenav.toggled #layoutSidenav_nav {
+        left: 0;
+    }
+}
+
         .card1 {
             width: 340px;
             height: 340px;
@@ -351,14 +379,7 @@ margin-bottom: 0px;
 
         {% endblock %}
         {% block footer %}
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Malakaviy imtihon &copy; mi.nuu.uz 2025</div>
-                    
-                </div>
-            </div>
-        </footer>
+        
         {% endblock %}
     </div>
 </div>
@@ -784,7 +805,26 @@ renderCalendar(currentDate);
 
 
 </script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let sidebarToggle = document.getElementById("sidebarToggle");
+        let layoutSidenav = document.getElementById("layoutSidenav");
+
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener("click", function () {
+                layoutSidenav.classList.toggle("toggled");
+            });
+        }
+
+        // Agar foydalanuvchi menyudan tashqariga bossa, uni yopish
+        document.addEventListener("click", function (event) {
+            if (!layoutSidenav.contains(event.target) && !sidebarToggle.contains(event.target)) {
+                layoutSidenav.classList.remove("toggled");
+            }
+        });
+    });
+</script>
 
 
 </body>

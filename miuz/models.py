@@ -83,6 +83,7 @@ class Applications(models.Model):
         ('pending', 'Kutilmoqda'),
         ('accepted', 'Qabul qilingan'),
         ('rejected', 'Rad etilgan'),
+        ('graded', 'Baholangan'),
     ]
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  # talabgor
     first_name = models.CharField(max_length=100, verbose_name="Ism")  # Ism

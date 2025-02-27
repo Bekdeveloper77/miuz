@@ -379,18 +379,32 @@
                                 <td>{{ application.organization }}</td>
                                 <td>{{ application.sciences }}</td>
                                 <td id="status_{{ application.id }}">
-                            <span class="
-                    {% if application.status == 'pending' %}
-                        btn btn-outline-warning
-                    {% elif application.status == 'accepted' %}
-                        btn btn-outline-success
-                    {% elif application.status == 'rejected' %}
-                        btn btn-outline-danger
-                    {% else %}
-                        btn btn-outline-secondary
-                    {% endif %}">{{ application.get_status_display }}</span>
-                                </td>
-                                <td>
+    <span class="
+        {% if application.status == 'pending' %}
+            btn btn-outline-warning
+        {% elif application.status == 'accepted' %}
+            btn btn-outline-success
+        {% elif application.status == 'rejected' %}
+            btn btn-outline-danger
+        {% elif application.status == 'graded' %}
+            btn btn-outline-primary  <!-- Baholangan holati -->
+        {% else %}
+            btn btn-outline-secondary
+        {% endif %}
+    ">
+        {% if application.status == 'graded' %}
+            Baholangan
+        {% else %}
+            {{ application.get_status_display }}
+        {% endif %}
+    </span>
+                                <td> {% if application.status == 'graded' %}
+        {% for result in results %}
+    					{% if result.application == application %}
+        				<a href="{% url 'generate_certificate' result.id %}" class="btn btn-primary">Sertifikatni Yuklab Olish</a>
+    					{% endif %}
+					{% endfor %}
+    {% else %}
                                     <form method="POST" action="{% url 'update_status' pk=application.id %}">
                                         {% csrf_token %}
                                         <button type="button" class="btn btn-success" data-bs-toggle="modal"
@@ -398,6 +412,7 @@
                                             <i class="fa-regular fas fa-eye"></i> Ko‘rish
                                         </button>
                                     </form>
+	 {% endif %}
                                 </td>
                             </tr>
 

@@ -3,10 +3,57 @@
 {% block content %}
 
 <main>
+	 <div class="container-fluid px-4">
+
+	<h1 class="mt-4">PhD Exam</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">MALAKAVIY IMTIHON</li>
+        </ol>
+
+	 <div class="row">
+            {% for status, count in status_counts.items %}
+            <div class="col-xl-3 col-md-6">
+                {% if status == "pending" %}
+                <div class="card bg-primary text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fas fa-hourglass-start" style="font-size: 40px; padding-left: 12px; color: wheat"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+                {% elif status == "accepted" %}
+                <div class="card bg-success text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-check-circle" aria-hidden="true"  style="font-size: 40px; padding-left: 12px; color: forestgreen"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+                {% elif status == "rejected" %}
+                <div class="card bg-danger text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-times-circle" aria-hidden="true" style="font-size: 40px; padding-left: 12px; color: crimson"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+                </div>
+		{% elif status == 'graded' %}
+            	<div class="card bg-success text-white mb-4"
+                     style="display:flex; align-items: center; flex-direction: row;">
+                    <div><i class="fa-solid fa fa-clipboard-check" aria-hidden="true"  style="font-size: 40px; padding-left: 12px; color: forestgreen"></i></div>
+                    <div class="card-body">{{ status }}
+                        <div><h1>{{ count }}</h1></div>
+                    </div>
+            {% endif %}
+            </div>
+            {% endfor %}
+            </div>
+
+        </div>
 
             <div class="container-fluid px-4">
                             
-                <div class="card mb-4" style="margin-top:100px">
+                <div class="card mb-4">
                     <div>
                         <div class="card-header p-3">
                             <div style="display: flex; align-items: center">
@@ -103,6 +150,7 @@
 
             </div>
         </div>
+	</div>
         </main>
     
 
