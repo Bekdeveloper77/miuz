@@ -15,7 +15,7 @@
         {% for message in messages %}
         <div class="alert alert-dismissible fade show {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}"
              role="alert">
-             <p style="color:red">{{ message }}</p>
+             <p style="color:green">{{ message }}</p>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         {% endfor %}
@@ -28,7 +28,7 @@
                 <div class="card bg-primary text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
                     <div><i class="fas fa-hourglass-start" style="font-size: 40px; padding-left: 12px; color: wheat"></i></div>
-                    <div class="card-body">{{ status }}
+                    <div class="card-body">Kutilmoqda
                         <div><h1>{{ count }}</h1></div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="card bg-success text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
                     <div><i class="fa-solid fa fa-check-circle" aria-hidden="true"  style="font-size: 40px; padding-left: 12px; color: forestgreen"></i></div>
-                    <div class="card-body">{{ status }}
+                    <div class="card-body">Qabul qilingan
                         <div><h1>{{ count }}</h1></div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="card bg-danger text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
                     <div><i class="fa-solid fa fa-times-circle" aria-hidden="true" style="font-size: 40px; padding-left: 12px; color: crimson"></i></div>
-                    <div class="card-body">{{ status }}
+                    <div class="card-body">Rad etilgan
                         <div><h1>{{ count }}</h1></div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
             	<div class="card bg-success text-white mb-4"
                      style="display:flex; align-items: center; flex-direction: row;">
                     <div><i class="fa-solid fa fa-clipboard-check" aria-hidden="true"  style="font-size: 40px; padding-left: 12px; color: forestgreen"></i></div>
-                    <div class="card-body">{{ status }}
+                    <div class="card-body">Baholangan
                         <div><h1>{{ count }}</h1></div>
                     </div>
             {% endif %}

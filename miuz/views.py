@@ -55,7 +55,7 @@ def LoginView(request):
             return redirect(reverse_lazy('home' if user.is_superuser else 'applications'))
             #return redirect('home' if user.is_superuser else 'applications')
         else:
-            return HttpResponse("Invalid login credentials", status=400)
+            return redirect("404.html", status=400)
 
     if request.GET.get("oneid_login"):
         # Avvalgi sessiyadagi state qiymatini tozalash
@@ -267,40 +267,40 @@ def GroupsView(request):
 
 
 
-def export_excelgroup(request):
-    # Excel faylini yaratish
-    workbook = Workbook()
-    sheet = workbook.active
-    sheet.title = 'datetime'
-
-    # Ustun nomlarini yozish (header)
-    sheet['A1'] = 'ID'
-    sheet['B1'] = 'SANA'
-    sheet['C1'] = 'FAN NOMI'
-
-    # Ma'lumotlar bazasidan fanlarni olish
-    groups = Groups.objects.all()  # Barcha fanlar
-
-    # Agar fanlar mavjud bo'lsa
-    if groups.exists():
-        # Har bir fanlar uchun yangi satr qo'shish
-        row = 2  # 1-chi qatorda ustun nomlari bor, shuning uchun 2-qatorni boshlaymiz
-        for group in groups:
-            # Har bir talabgor haqida ma'lumotlar
-            sheet[f'A{row}'] = group.id
-            sheet[f'B{row}'] = group.datetime
-            sheet[f'C{row}'] = str(group.sciences)  # 'groups' o'rniga 'sciences'
-
-            row += 1  # Har bir fan uchun yangi satr
-
-    # Django response yaratish
-    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-    response['Content-Disposition'] = 'attachment; filename="science_datetime.xlsx"'
-
-    # Excel faylini response ga saqlash
-    workbook.save(response)
-
-    return response
+#def export_excelgroup(request):
+#    # Excel faylini yaratish
+#    workbook = Workbook()
+#    sheet = workbook.active
+#    sheet.title = 'datetime'
+#
+#    # Ustun nomlarini yozish (header)
+#    sheet['A1'] = 'ID'
+#    sheet['B1'] = 'SANA'
+#    sheet['C1'] = 'FAN NOMI'
+#
+#    # Ma'lumotlar bazasidan fanlarni olish
+#    groups = Groups.objects.all()  # Barcha fanlar
+#
+#    # Agar fanlar mavjud bo'lsa
+#    if groups.exists():
+#        # Har bir fanlar uchun yangi satr qo'shish
+#        row = 2  # 1-chi qatorda ustun nomlari bor, shuning uchun 2-qatorni boshlaymiz
+#        for group in groups:
+#            # Har bir talabgor haqida ma'lumotlar
+#            sheet[f'A{row}'] = group.id
+#            sheet[f'B{row}'] = group.datetime
+#            sheet[f'C{row}'] = str(group.sciences)  # 'groups' o'rniga 'sciences'
+#
+#            row += 1  # Har bir fan uchun yangi satr
+#
+#    # Django response yaratish
+#    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+#    response['Content-Disposition'] = 'attachment; filename="science_datetime.xlsx"'
+#
+#    # Excel faylini response ga saqlash
+#    workbook.save(response)
+#
+#    return response
 
    
 
@@ -568,6 +568,7 @@ def export_excel(request):
     sheet['D1'] = 'TASHKILOT'
     sheet['E1'] = 'FAN NOMI'
     sheet['F1'] = 'STATUS'
+    sheet['G1'] = 'TELEFON'
 
     # Ma'lumotlar bazasidan arizalarni olish
     applications = Applications.objects.all()  # Barcha arizalar
@@ -584,6 +585,7 @@ def export_excel(request):
             sheet[f'D{row}'] = application.organization
             sheet[f'E{row}'] = str(application.sciences)  # `Sciences` obyektini stringga aylantirish
             sheet[f'F{row}'] = application.status
+            sheet[f'G{row}'] = application.number
 
             row += 1  # Har bir talabgor uchun yangi satr
 
@@ -901,6 +903,11 @@ def curriculum_user(request):
 
 def save_exam_results(request, application_id):
     application = get_object_or_404(Applications, id=application_id)
+    
+    # Avval tekshiramiz: ushbu application uchun natija allaqachon kiritilganmi?
+    if ExamResult.objects.filter(application=application).exists():
+        messages.error(request, "Ushbu ariza uchun imtihon natijasi allaqachon kiritilgan!")
+        return redirect('admin_applications')  # Natija kiritilgan bo‘lsa, qayta yo‘naltiramiz
     
     if request.method == 'POST':
         form = ExamResultForm(request.POST)

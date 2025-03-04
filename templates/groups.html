@@ -47,6 +47,15 @@
             {% endfor %}
 
             </div>
+		{% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible fade show {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}"
+             role="alert">
+             <p style="color:green">{{ message }}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
 
         </div>
 
@@ -58,9 +67,7 @@
                 </div>
                 <div style="display: flex;">
 
-                    <a href="{% url 'export_excelgroup' %}" class="btn btn-success" style="margin-right: 6px">
-                         <i class="fa-solid fas fa-file-excel"></i> <b>Excel</b>
-                    </a>
+                    
 
                     <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal3">
                          <i class="fa-solid fas fa-plus"></i>

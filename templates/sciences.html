@@ -46,9 +46,18 @@
             </div>
             {% endfor %}
             </div>
+		{% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible fade show {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}"
+             role="alert">
+             <p style="color:green">{{ message }}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
 
         </div>
-
+	
 
         <div class="card mb-4">
             <div class="card-header p-3">

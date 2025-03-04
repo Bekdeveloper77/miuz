@@ -1,8 +1,15 @@
 from django.contrib import admin
-from .models import (Menu,Sciences,Applications,Groups,Edutype,Comissions, ExamResult,Curriculum)
+from .models import (CustomUser,Menu,Sciences,Applications,Groups,Edutype,Comissions, ExamResult,Curriculum)
 # Register your models here.
 
+
+
 # Register your models here.
+@admin.register(CustomUser)
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = ('username', 'email', 'is_staff', 'is_active')
+    search_fields = ('username', 'email')
+
 admin.site.register(Menu)
 admin.site.register(Sciences)
 admin.site.register(Edutype)
